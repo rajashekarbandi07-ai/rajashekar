@@ -4,186 +4,355 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Horticulture CSP Project</title>
+<title>Horticulture Learning Hub</title>
 
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background: #f1f8e9;
-    color: #263b28;
+    background: #f4f8f1;
+    color: #263b29;
 }
 
-header {
-    background: #14532d;
-    color: white;
-    padding: 25px;
-    text-align: center;
-}
+/* NAVIGATION */
 
-header h1 {
-    font-size: 30px;
-    margin-bottom: 8px;
-}
-
-/* HOME PAGE */
-
-#homePage {
-    min-height: 85vh;
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 7%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #b9ff9b;
+}
+
+/* WELCOME PAGE */
+
+.hero {
+    min-height: 100vh;
+    background:
+    linear-gradient(
+        rgba(0, 35, 15, 0.48),
+        rgba(0, 20, 10, 0.65)
+    ),
+    url("https://images.unsplash.com/photo-1416879595882-3373a0480b5b")
+    center/cover no-repeat;
+
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
-    padding: 25px;
-
-    background:
-    linear-gradient(rgba(0,50,0,.65),rgba(0,50,0,.65)),
-    url("https://images.unsplash.com/photo-1416879595882-3373a0480b5b");
-
-    background-position: center;
-    background-size: cover;
+    padding: 100px 20px 50px;
 }
 
-#homePage h2 {
-    font-size: 42px;
+.hero-content {
+    max-width: 850px;
+    color: white;
+}
+
+.hero-content .tagline {
+    color: #c8ffb5;
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
     margin-bottom: 20px;
 }
 
-#homePage p {
-    font-size: 19px;
+.hero-content h1 {
+    font-size: 58px;
+    line-height: 1.2;
     margin-bottom: 25px;
 }
 
-/* BUTTONS */
+.hero-content p {
+    font-size: 19px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
 
-button {
-    background: #2e7d32;
+.explore-btn {
+    display: inline-block;
+    padding: 15px 38px;
+    background: #7bc043;
     color: white;
-    border: none;
-    padding: 13px 25px;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #1b5e20;
-}
-
-.explore {
-    background: #ffeb3b;
-    color: #14532d;
+    text-decoration: none;
+    font-size: 17px;
     font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
 }
 
-/* WEEKS PAGE */
-
-#weeksPage {
-    display: none;
-    padding: 45px 7%;
-    min-height: 80vh;
+.explore-btn:hover {
+    background: #4c9625;
+    transform: translateY(-4px);
 }
 
-.heading {
+/* HIGHLIGHTS */
+
+.highlights {
+    padding: 65px 7%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    background: #f4f8f1;
+}
+
+.highlight-card {
+    background: white;
+    padding: 35px 25px;
     text-align: center;
-    color: #1b5e20;
-    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    transition: 0.3s;
 }
 
-.week-grid {
+.highlight-card:hover {
+    transform: translateY(-8px);
+}
+
+.highlight-card .emoji {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.highlight-card h3 {
+    color: #27632b;
+    margin-bottom: 12px;
+}
+
+.highlight-card p {
+    color: #667568;
+    line-height: 1.6;
+}
+
+/* ACTIVITIES PAGE */
+
+.activities-section {
+    display: none;
+    padding: 110px 7% 60px;
+    min-height: 100vh;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h1 {
+    font-size: 38px;
+    color: #27632b;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: #647568;
+    font-size: 17px;
+}
+
+.activities-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 25px;
 }
 
 .week-card {
     background: white;
-    padding: 30px 15px;
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,.12);
-    cursor: pointer;
-    transition: .3s;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
 }
 
 .week-card:hover {
-    transform: translateY(-6px);
-    background: #dcedc8;
+    transform: translateY(-7px);
 }
 
-.week-card h3 {
-    color: #2e7d32;
+.week-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.week-content {
+    padding: 22px;
+}
+
+.week-content span {
+    display: inline-block;
+    background: #e5f5dc;
+    color: #347c2e;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
     margin-bottom: 12px;
 }
 
-/* DETAILS PAGE */
+.week-content h3 {
+    color: #27632b;
+    margin-bottom: 12px;
+}
 
-#detailsPage {
+.week-content p {
+    color: #667568;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.week-content button {
+    margin-top: 18px;
+    background: #4c963b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.week-content button:hover {
+    background: #286a28;
+}
+
+/* ACTIVITY DETAILS */
+
+.details-section {
     display: none;
-    padding: 40px 7%;
-    min-height: 80vh;
+    min-height: 100vh;
+    padding: 120px 8% 60px;
 }
 
 .details-box {
-    background: white;
     max-width: 850px;
     margin: auto;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,.12);
-    line-height: 1.9;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
-.details-box h2 {
-    color: #1b5e20;
+.details-box h1 {
+    color: #27632b;
     margin-bottom: 20px;
 }
 
+.details-box p {
+    line-height: 1.8;
+    color: #56675a;
+    margin-bottom: 15px;
+}
+
 .details-box h3 {
-    color: #2e7d32;
-    margin-top: 20px;
+    color: #347c2e;
+    margin: 22px 0 12px;
 }
 
 .details-box ul {
     padding-left: 25px;
+    line-height: 2;
+    color: #56675a;
 }
 
-.back {
+.back-btn {
     margin-top: 25px;
+    background: #4c963b;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
 }
+
+/* FOOTER */
 
 footer {
-    background: #14532d;
+    background: #173e24;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
+    line-height: 1.8;
 }
 
-@media(max-width:800px) {
-    .week-grid {
-        grid-template-columns: repeat(2,1fr);
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+    .activities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
     }
 }
 
-@media(max-width:450px) {
-    .week-grid {
+@media(max-width: 600px) {
+    .navbar {
+        padding: 20px 5%;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .hero-content h1 {
+        font-size: 35px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .highlights {
         grid-template-columns: 1fr;
     }
 
-    #homePage h2 {
-        font-size: 29px;
+    .activities-grid {
+        grid-template-columns: 1fr;
     }
 
     .details-box {
-        padding: 20px;
+        padding: 25px;
     }
 }
 </style>
@@ -191,308 +360,273 @@ footer {
 
 <body>
 
-<header>
-    <h1>🌱 HORTICULTURE CSP PROJECT</h1>
-    <p>Growing Green - Creating a Better Future</p>
-</header>
+<!-- NAVIGATION -->
 
-<!-- PAGE 1: HOME -->
+<nav class="navbar">
+    <div class="logo">🌿 HORTICULTURE</div>
 
-<section id="homePage">
-
-    <h2>Welcome to Horticulture</h2>
-
-    <p>Plant Trees, Save Nature, Protect Our Future.</p>
-
-    <button class="explore" onclick="navigateTo('weeks')">
-        Explore Project
-    </button>
-
-</section>
-
-
-<!-- PAGE 2: EIGHT WEEKS -->
-
-<section id="weeksPage">
-
-    <h2 class="heading">HORTICULTURE CSP - 8 WEEKS</h2>
-
-    <div class="week-grid">
-
-        <div class="week-card" onclick="navigateTo('week1')">
-            <h3>WEEK 01</h3>
-            <p>Introduction to Horticulture</p>
-        </div>
-
-        <div class="week-card" onclick="navigateTo('week2')">
-            <h3>WEEK 02</h3>
-            <p>Types of Plants</p>
-        </div>
-
-        <div class="week-card" onclick="navigateTo('week3')">
-            <h3>WEEK 03</h3>
-            <p>Soil Preparation</p>
-        </div>
-
-        <div class="week-card" onclick="navigateTo('week4')">
-            <h3>WEEK 04</h3>
-            <p>Seed Sowing and Planting</p>
-        </div>
-
-        <div class="week-card" onclick="navigateTo('week5')">
-            <h3>WEEK 05</h3>
-            <p>Water Management</p>
-        </div>
-
-        <div class="week-card" onclick="navigateTo('week6')">
-            <h3>WEEK 06</h3>
-            <p>Organic Manures</p>
-        </div>
-
-        <div class="week-card" onclick="navigateTo('week7')">
-            <h3>WEEK 07</h3>
-            <p>Plant Care and Maintenance</p>
-        </div>
-
-        <div class="week-card" onclick="navigateTo('week8')">
-            <h3>WEEK 08</h3>
-            <p>Results and Conclusion</p>
-        </div>
-
+    <div class="nav-links">
+        <a href="#home" onclick="showPage('home')">Home</a>
+        <a href="#activities" onclick="showPage('activities')">Activities</a>
     </div>
+</nav>
 
-    <center>
-        <button class="back" onclick="navigateTo('home')">
-            ← Back to Home
-        </button>
-    </center>
+<!-- WELCOME PAGE -->
 
-</section>
+<section class="hero" id="home">
 
+    <div class="hero-content">
 
-<!-- PAGE 3: WEEK DETAILS -->
+        <div class="tagline">Welcome to Horticulture</div>
 
-<section id="detailsPage">
+        <h1>Growing a Greener Tomorrow!</h1>
 
-    <div class="details-box">
+        <p>
+            Discover the beauty of nature, explore the world
+            of plants, and learn the art of growing a greener
+            and healthier environment.
+        </p>
 
-        <h2 id="weekTitle"></h2>
-
-        <h3>Topic</h3>
-        <p id="topic"></p>
-
-        <h3>Objective</h3>
-        <p id="objective"></p>
-
-        <h3>Activities Performed</h3>
-        <ul id="activities"></ul>
-
-        <h3>Learning Outcomes</h3>
-        <p id="outcomes"></p>
-
-        <button class="back" onclick="navigateTo('weeks')">
-            ← Back to 8 Weeks
-        </button>
+        <a href="#activities"
+           class="explore-btn"
+           onclick="showPage('activities')">
+           Explore Activities →
+        </a>
 
     </div>
 
 </section>
 
+<!-- HIGHLIGHTS -->
+
+<section class="highlights" id="highlights">
+
+    <div class="highlight-card">
+        <div class="emoji">🌱</div>
+        <h3>Plant Growing</h3>
+        <p>Learn how to grow healthy plants and understand their development.</p>
+    </div>
+
+    <div class="highlight-card">
+        <div class="emoji">🌻</div>
+        <h3>Garden Care</h3>
+        <p>Discover gardening methods and techniques to maintain beautiful gardens.</p>
+    </div>
+
+    <div class="highlight-card">
+        <div class="emoji">🌳</div>
+        <h3>Green Environment</h3>
+        <p>Understand the importance of nature and contribute to a greener planet.</p>
+    </div>
+
+</section>
+
+<!-- ACTIVITIES PAGE -->
+
+<section class="activities-section" id="activities">
+
+    <div class="section-heading">
+        <h1>Our Horticulture Activities</h1>
+        <p>Explore your learning journey through 8 weeks of activities.</p>
+    </div>
+
+    <div class="activities-grid" id="activitiesGrid"></div>
+
+</section>
+
+<!-- DETAILS PAGE -->
+
+<section class="details-section" id="details">
+
+    <div class="details-box" id="detailsContent"></div>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
-    <p>© 2026 Horticulture Community Service Project</p>
-    <p>Save Trees | Save Nature | Save Future 🌱</p>
+    <h3>🌿 Horticulture Learning Hub</h3>
+    <p>Learn Today, Grow Tomorrow!</p>
+    <p>© 2026 Horticulture Website. All Rights Reserved.</p>
 </footer>
-
 
 <script>
 
-// 8 WEEKS DATA
+/* 8 WEEKS ACTIVITIES DATA */
 
-const weeks = {
-1: {
-title: "WEEK 01 - Introduction to Horticulture",
-topic: "Introduction and importance of horticulture.",
-objective: "To understand the basic concepts and importance of horticulture.",
-activities: [
-"Introduction to horticulture.",
-"Understanding the importance of plants.",
-"Visiting nearby gardens and nurseries.",
-"Identifying different plants."
-],
-outcomes: "We learned the importance of horticulture in daily life and environmental protection."
+const weeks = [
+{
+    title: "Introduction to Horticulture",
+    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b",
+    description: "Learn the basics of horticulture and its importance.",
+    objective: "Understand horticulture and its different branches.",
+    tasks: ["Introduction to horticulture", "Importance of plants", "Study different horticulture branches"],
+    outcome: "Students understand the basic concepts of horticulture."
 },
-
-2: {
-title: "WEEK 02 - Types of Horticulture Plants",
-topic: "Different types of horticulture plants.",
-objective: "To identify different plant categories.",
-activities: [
-"Identifying fruit plants.",
-"Identifying vegetable plants.",
-"Observing flower plants.",
-"Learning about medicinal plants."
-],
-outcomes: "We understood different categories and uses of horticulture plants."
+{
+    title: "Soil Preparation",
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
+    description: "Understand soil types and methods of soil preparation.",
+    objective: "Learn how soil supports plant growth.",
+    tasks: ["Identify different soil types", "Study soil nutrients", "Prepare soil for planting"],
+    outcome: "Students learn proper soil preparation techniques."
 },
-
-3: {
-title: "WEEK 03 - Soil Preparation",
-topic: "Soil preparation for gardening.",
-objective: "To understand the importance of soil for plant growth.",
-activities: [
-"Observing different soil types.",
-"Removing stones and weeds.",
-"Mixing soil with compost.",
-"Preparing soil for planting."
-],
-outcomes: "We learned how to prepare fertile soil for healthy plant growth."
+{
+    title: "Seed Germination",
+    image: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e",
+    description: "Learn how seeds germinate and develop into plants.",
+    objective: "Understand the process of seed germination.",
+    tasks: ["Collect seeds", "Plant seeds in containers", "Observe germination"],
+    outcome: "Students understand the stages of seed germination."
 },
-
-4: {
-title: "WEEK 04 - Seed Sowing and Planting",
-topic: "Seed selection and planting methods.",
-objective: "To learn the process of growing plants from seeds.",
-activities: [
-"Selecting healthy seeds.",
-"Preparing seed beds.",
-"Sowing seeds.",
-"Observing seed germination."
-],
-outcomes: "We learned basic seed sowing and planting techniques."
+{
+    title: "Plant Propagation",
+    image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735",
+    description: "Explore different methods of plant propagation.",
+    objective: "Learn methods of producing new plants.",
+    tasks: ["Study cutting method", "Learn layering", "Observe propagation methods"],
+    outcome: "Students gain knowledge about plant propagation."
 },
-
-5: {
-title: "WEEK 05 - Water Management",
-topic: "Watering and irrigation methods.",
-objective: "To understand the importance of proper water management.",
-activities: [
-"Learning irrigation methods.",
-"Observing drip irrigation.",
-"Watering plants.",
-"Understanding water conservation."
-],
-outcomes: "We learned how to save water and maintain healthy plants."
+{
+    title: "Garden Maintenance",
+    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae",
+    description: "Learn watering, pruning and maintaining gardens.",
+    objective: "Understand regular garden maintenance.",
+    tasks: ["Watering plants", "Remove unwanted weeds", "Learn pruning techniques"],
+    outcome: "Students learn how to maintain a healthy garden."
 },
-
-6: {
-title: "WEEK 06 - Organic Manures",
-topic: "Organic manure and natural fertilizers.",
-objective: "To understand the benefits of organic manure.",
-activities: [
-"Learning about compost.",
-"Understanding cow dung manure.",
-"Observing vermicomposting.",
-"Learning about organic farming."
-],
-outcomes: "We understood the importance of organic fertilizers for soil fertility."
+{
+    title: "Organic Gardening",
+    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999",
+    description: "Discover natural and organic gardening practices.",
+    objective: "Understand eco-friendly gardening methods.",
+    tasks: ["Prepare compost", "Learn organic manure usage", "Study natural pest control"],
+    outcome: "Students understand organic gardening practices."
 },
-
-7: {
-title: "WEEK 07 - Plant Care and Maintenance",
-topic: "Plant protection and maintenance.",
-objective: "To learn how to maintain healthy plants.",
-activities: [
-"Removing weeds.",
-"Pruning dry branches.",
-"Observing plant pests.",
-"Regular watering and maintenance."
-],
-outcomes: "We learned how to maintain plants and protect them from damage."
+{
+    title: "Plant Diseases and Protection",
+    image: "https://images.unsplash.com/photo-1492496913980-501348b61469",
+    description: "Identify common plant diseases and their prevention.",
+    objective: "Learn to protect plants from pests and diseases.",
+    tasks: ["Identify plant diseases", "Observe affected leaves", "Study prevention methods"],
+    outcome: "Students learn basic plant protection techniques."
 },
-
-8: {
-title: "WEEK 08 - Results and Conclusion",
-topic: "Project results and final observations.",
-objective: "To review the activities performed during eight weeks.",
-activities: [
-"Reviewing all project activities.",
-"Observing plant growth.",
-"Understanding environmental benefits.",
-"Creating awareness in the community."
-],
-outcomes: "The project helped us understand horticulture, gardening and environmental protection."
+{
+    title: "Project and Final Review",
+    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
+    description: "Complete a small horticulture project and review learning.",
+    objective: "Apply the knowledge gained during eight weeks.",
+    tasks: ["Prepare a small garden project", "Present project results", "Review all activities"],
+    outcome: "Students demonstrate their horticulture knowledge."
 }
-};
+];
 
+/* DISPLAY ACTIVITY CARDS */
 
-// PAGE NAVIGATION
+const grid = document.getElementById("activitiesGrid");
 
-function navigateTo(page) {
+weeks.forEach((week, index) => {
 
-    history.pushState({page: page}, "", "#" + page);
+    const card = document.createElement("div");
+    card.className = "week-card";
 
-    showPage(page);
+    card.innerHTML = `
+        <img src="${week.image}" alt="${week.title}">
+
+        <div class="week-content">
+            <span>Week ${index + 1}</span>
+
+            <h3>${week.title}</h3>
+
+            <p>${week.description}</p>
+
+            <button onclick="openDetails(${index})">
+                View Details →
+            </button>
+        </div>
+    `;
+
+    grid.appendChild(card);
+
+});
+
+/* OPEN DETAILS */
+
+function openDetails(index) {
+
+    const week = weeks[index];
+
+    document.getElementById("detailsContent").innerHTML = `
+
+        <h1>Week ${index + 1}: ${week.title}</h1>
+
+        <p>${week.description}</p>
+
+        <h3>Learning Objective</h3>
+        <p>${week.objective}</p>
+
+        <h3>Activities</h3>
+
+        <ul>
+            ${week.tasks.map(task => `<li>${task}</li>`).join("")}
+        </ul>
+
+        <h3>Expected Outcome</h3>
+        <p>${week.outcome}</p>
+
+        <button class="back-btn"
+        onclick="showPage('activities')">
+        ← Back to Activities
+        </button>
+
+    `;
+
+    showPage("details");
 }
 
-
-// DISPLAY CORRECT PAGE
+/* PAGE NAVIGATION */
 
 function showPage(page) {
 
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("weeksPage").style.display = "none";
-    document.getElementById("detailsPage").style.display = "none";
+    const hero = document.querySelector(".hero");
+    const highlights = document.querySelector(".highlights");
+    const activities = document.querySelector(".activities-section");
+    const details = document.querySelector(".details-section");
+    const footer = document.querySelector("footer");
+
+    hero.style.display = "none";
+    highlights.style.display = "none";
+    activities.style.display = "none";
+    details.style.display = "none";
 
     if (page === "home") {
-        document.getElementById("homePage").style.display = "flex";
+
+        hero.style.display = "flex";
+        highlights.style.display = "grid";
+        footer.style.display = "block";
+
     }
 
-    else if (page === "weeks") {
-        document.getElementById("weeksPage").style.display = "block";
+    else if (page === "activities") {
+
+        activities.style.display = "block";
+        footer.style.display = "block";
+
     }
 
-    else if (page.startsWith("week")) {
+    else if (page === "details") {
 
-        let number = Number(page.replace("week", ""));
-        let data = weeks[number];
+        details.style.display = "block";
+        footer.style.display = "block";
 
-        if (!data) {
-            showPage("home");
-            return;
-        }
-
-        document.getElementById("detailsPage").style.display = "block";
-
-        document.getElementById("weekTitle").innerText = data.title;
-        document.getElementById("topic").innerText = data.topic;
-        document.getElementById("objective").innerText = data.objective;
-        document.getElementById("outcomes").innerText = data.outcomes;
-
-        let list = document.getElementById("activities");
-        list.innerHTML = "";
-
-        data.activities.forEach(function(item) {
-            let li = document.createElement("li");
-            li.textContent = item;
-            list.appendChild(li);
-        });
     }
 
     window.scrollTo(0, 0);
 }
 
+/* INITIAL PAGE */
 
-// BROWSER BACK BUTTON SUPPORT
-
-window.addEventListener("popstate", function() {
-
-    let page = location.hash.replace("#", "") || "home";
-
-    showPage(page);
-
-});
-
-
-// INITIAL PAGE
-
-window.addEventListener("DOMContentLoaded", function() {
-
-    let page = location.hash.replace("#", "") || "home";
-
-    showPage(page);
-
-});
+showPage("home");
 
 </script>
 
