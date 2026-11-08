@@ -4,276 +4,241 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Horticulture Learning Hub</title>
+<title>Horticulture - Growing a Greener Tomorrow</title>
 
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
-
 body {
-    background: #f7f7f1;
-    color: #173b2c;
+    background: #f4f9f1;
+    color: #263b2b;
 }
 
 /* NAVIGATION */
-
-.navbar {
-    position: absolute;
-    top: 0;
-    left: 0;
+nav {
     width: 100%;
-    padding: 24px 6%;
+    padding: 22px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: white;
+    position: sticky;
+    top: 0;
     z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
 .logo {
-    color: white;
-    font-size: 23px;
+    color: #207a3d;
+    font-size: 25px;
     font-weight: bold;
-    letter-spacing: 1px;
 }
 
 .nav-links {
     display: flex;
     gap: 30px;
-    align-items: center;
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
+.nav-links button {
+    border: none;
+    background: none;
+    color: #16843c;
     font-size: 16px;
-    font-weight: 700;
-    padding: 9px 15px;
-    border-radius: 25px;
-    transition: 0.3s;
-    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-    background: #e6bd42;
-    color: #173b2c;
-    text-shadow: none;
+.nav-links button:hover {
+    color: #f39c12;
+}
+
+/* COMMON */
+.page {
+    display: none;
+    min-height: 80vh;
+}
+
+.page.active {
+    display: block;
+}
+
+.container {
+    width: 86%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 55px 0;
+}
+
+.section-title {
+    text-align: center;
+    color: #176b35;
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #657568;
+    margin-bottom: 40px;
+    line-height: 1.7;
 }
 
 /* WELCOME PAGE */
-
 .hero {
-    min-height: 100vh;
-    background:
-    linear-gradient(
-        rgba(0, 35, 15, 0.48),
-        rgba(0, 20, 10, 0.65)
-    ),
-    url("https://images.unsplash.com/photo-1416879595882-3373a0480b5b")
-    center/cover no-repeat;
-
+    min-height: 590px;
+    padding: 70px 8%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 100px 20px 50px;
+    justify-content: space-between;
+    gap: 35px;
+    background: linear-gradient(120deg, #d9f4d6, #f3fbe9);
 }
 
 .hero-content {
-    max-width: 850px;
-    color: white;
-}
-
-.tagline {
-    color: #e6c15a;
-    font-size: 15px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    margin-bottom: 22px;
+    max-width: 550px;
 }
 
 .hero-content h1 {
-    font-family: Georgia, serif;
-    font-size: 65px;
-    line-height: 1.15;
-    margin-bottom: 25px;
-}
-
-.hero-content h1 span {
-    color: #e8bd42;
-    font-style: italic;
+    font-size: 52px;
+    color: #176b35;
+    margin-bottom: 20px;
 }
 
 .hero-content p {
     font-size: 18px;
     line-height: 1.8;
-    margin-bottom: 35px;
+    color: #526453;
+    margin-bottom: 30px;
 }
 
-.main-btn {
-    display: inline-block;
-    padding: 15px 38px;
-    background: #e0b536;
-    color: #173b2c;
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: bold;
+.hero-image {
+    width: 47%;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.primary-btn {
+    padding: 15px 32px;
+    border: none;
     border-radius: 30px;
-    transition: 0.3s;
+    background: #238b45;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
 }
 
-.main-btn:hover {
-    background: white;
-    transform: translateY(-4px);
+.primary-btn:hover {
+    background: #145c2c;
+    transform: translateY(-3px);
 }
 
-/* HOME HIGHLIGHTS */
-
+/* HIGHLIGHTS */
 .highlights {
-    padding: 65px 7%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
-    background: #f7f7f1;
+    margin-top: 45px;
 }
 
 .highlight-card {
     background: white;
-    padding: 35px 25px;
+    padding: 30px;
     text-align: center;
-    border-radius: 12px;
+    border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-    transition: 0.3s;
-}
-
-.highlight-card:hover {
-    transform: translateY(-7px);
-}
-
-.emoji {
-    font-size: 42px;
-    margin-bottom: 15px;
 }
 
 .highlight-card h3 {
-    color: #27632b;
-    margin-bottom: 12px;
-}
-
-.highlight-card p {
-    color: #667568;
-    line-height: 1.7;
-}
-
-/* COMMON PAGE */
-
-.page-section {
-    display: none;
-    min-height: 100vh;
-    padding: 105px 6% 45px;
-    background: #f7f7f1;
-}
-
-/* PAGE BANNER */
-
-.page-banner {
-    background: #103e2c;
-    color: white;
-    padding: 30px 35px;
-    margin-bottom: 18px;
-}
-
-.page-banner small {
-    color: #e2b941;
-    letter-spacing: 3px;
-    font-size: 11px;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.page-banner h1 {
-    font-family: Georgia, serif;
-    font-size: 40px;
+    color: #207a3d;
     margin: 12px 0;
 }
 
-.page-banner h1 span {
-    color: #e3b735;
-    font-style: italic;
-}
-
-.page-banner p {
-    color: #dce8df;
-    font-size: 14px;
-    line-height: 1.7;
-    max-width: 650px;
-}
-
-/* PROJECT - FIVE TOPICS */
-
-.topic-row {
-    display: grid;
-    grid-template-columns: 125px 55px 1fr;
-    align-items: center;
-    gap: 22px;
-    padding: 13px 12px;
-    border-bottom: 1px solid #deded5;
-    transition: 0.3s;
-}
-
-.topic-row:hover {
-    background: #edf1e7;
-}
-
-.topic-row img {
-    width: 115px;
-    height: 75px;
-    object-fit: cover;
-    border-radius: 3px;
-}
-
-.topic-number {
-    color: #ad8125;
-    font-family: Georgia, serif;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.topic-info h2 {
-    font-family: Georgia, serif;
-    color: #143c2b;
-    font-size: 26px;
-    margin-bottom: 5px;
-}
-
-.topic-info p {
-    color: #68736a;
-    font-size: 12px;
+.highlight-card p {
+    color: #687568;
     line-height: 1.6;
-    max-width: 700px;
 }
 
-/* 8 WEEKS ACTIVITIES */
+/* TOPIC CARDS */
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
 
-.weeks-grid {
+.topic-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+    transition: .3s;
+}
+
+.topic-card:hover {
+    transform: translateY(-7px);
+}
+
+.topic-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.topic-content {
+    padding: 22px;
+}
+
+.topic-content h3 {
+    color: #207a3d;
+    margin-bottom: 10px;
+}
+
+.topic-content p {
+    color: #667267;
+    line-height: 1.6;
+}
+
+/* IMPORTANT TOPICS */
+.topic-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.topic-item {
+    background: white;
+    padding: 18px 22px;
+    border-radius: 10px;
+    border-left: 5px solid #29934c;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+
+.topic-item strong {
+    color: #207a3d;
+}
+
+/* WEEK CARDS */
+.week-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-    margin-top: 25px;
+    gap: 23px;
 }
 
 .week-card {
     background: white;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
-    transition: 0.3s;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+    transition: .3s;
 }
 
 .week-card:hover {
@@ -282,646 +247,527 @@ body {
 
 .week-card img {
     width: 100%;
-    height: 155px;
+    height: 165px;
     object-fit: cover;
 }
 
-.week-content {
-    padding: 18px;
+.week-info {
+    padding: 20px;
 }
 
-.week-content span {
-    display: inline-block;
-    color: #99741e;
-    background: #f6edcf;
-    padding: 5px 11px;
-    font-size: 11px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.week-content h3 {
-    font-family: Georgia, serif;
-    font-size: 21px;
-    color: #173e2c;
+.week-info h3 {
+    color: #207a3d;
     margin-bottom: 9px;
 }
 
-.week-content p {
-    color: #68736a;
-    font-size: 12px;
+.week-info p {
+    color: #657568;
+    font-size: 14px;
     line-height: 1.6;
-    min-height: 58px;
+    min-height: 45px;
 }
 
-.week-content button {
-    margin-top: 13px;
-    background: #17452e;
-    color: white;
+.week-info button {
+    margin-top: 15px;
     border: none;
+    background: #238b45;
+    color: white;
     padding: 10px 20px;
-    border-radius: 22px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 13px;
-    font-weight: bold;
-    transition: 0.3s;
 }
 
-.week-content button:hover {
-    background: #d3a72e;
-    color: #173b2c;
+.week-info button:hover {
+    background: #145c2c;
 }
 
-/* DETAILS PAGE */
-
-.details-section {
-    display: none;
-    min-height: 100vh;
-    padding: 115px 7% 55px;
-    background: #f7f7f1;
-}
-
+/* DETAILS */
 .details-box {
-    max-width: 1000px;
-    margin: auto;
     background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    padding: 35px;
+    border-radius: 16px;
+    max-width: 850px;
+    margin: auto;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
 }
 
-.details-box img {
-    width: 100%;
-    height: 330px;
-    object-fit: cover;
-    margin-bottom: 25px;
-}
-
-.details-box .label {
-    color: #a17a24;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 13px;
-}
-
-.details-box h1 {
-    font-family: Georgia, serif;
-    font-size: 42px;
-    color: #173e2c;
-    margin: 15px 0;
-}
-
-.details-box p {
-    line-height: 1.8;
-    color: #647268;
-    margin-bottom: 18px;
-}
-
-.details-box h3 {
-    color: #27632b;
+.details-box h2 {
+    color: #207a3d;
     margin: 25px 0 12px;
-    font-family: Georgia, serif;
-    font-size: 23px;
+}
+
+.details-box p,
+.details-box li {
+    line-height: 1.9;
+    color: #58665a;
 }
 
 .details-box ul {
     padding-left: 25px;
-    line-height: 2;
-    color: #647268;
 }
 
 .back-btn {
-    margin-top: 30px;
-    background: #17452e;
-    color: white;
-    padding: 13px 28px;
+    margin-bottom: 25px;
     border: none;
-    border-radius: 25px;
+    background: #207a3d;
+    color: white;
+    padding: 11px 22px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 15px;
-}
-
-.back-btn:hover {
-    background: #d3a72e;
-    color: #173b2c;
 }
 
 /* FOOTER */
-
 footer {
-    background: #103e2c;
+    background: #174e2c;
     color: white;
     text-align: center;
-    padding: 30px 15px;
+    padding: 25px;
+    margin-top: 50px;
     line-height: 1.8;
 }
 
-footer h3 {
-    margin-bottom: 8px;
-}
-
 /* RESPONSIVE */
+@media(max-width: 900px) {
+    .topic-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-@media(max-width: 950px) {
-    .weeks-grid {
+    .week-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
     .hero-content h1 {
-        font-size: 48px;
+        font-size: 40px;
     }
 }
 
 @media(max-width: 600px) {
-
-    .navbar {
-        padding: 18px 4%;
+    nav {
+        padding: 18px 5%;
     }
 
     .logo {
-        font-size: 15px;
+        font-size: 20px;
     }
 
     .nav-links {
-        gap: 5px;
+        gap: 15px;
     }
 
-    .nav-links a {
-        font-size: 12px;
-        padding: 8px 10px;
+    .nav-links button {
+        font-size: 14px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 55px 6%;
     }
 
     .hero-content h1 {
         font-size: 36px;
     }
 
-    .hero-content p {
-        font-size: 15px;
+    .hero-image {
+        width: 100%;
+        height: 250px;
     }
 
-    .highlights {
+    .highlights,
+    .topic-grid,
+    .topic-list,
+    .week-grid {
         grid-template-columns: 1fr;
     }
 
-    .page-section {
-        padding: 95px 4% 35px;
+    .section-title {
+        font-size: 27px;
     }
 
-    .page-banner {
-        padding: 22px 18px;
-    }
-
-    .page-banner h1 {
-        font-size: 29px;
-    }
-
-    .topic-row {
-        grid-template-columns: 75px 28px 1fr;
-        gap: 9px;
-        padding: 12px 3px;
-    }
-
-    .topic-row img {
-        width: 72px;
-        height: 65px;
-    }
-
-    .topic-number {
-        font-size: 16px;
-    }
-
-    .topic-info h2 {
-        font-size: 17px;
-    }
-
-    .topic-info p {
-        font-size: 10px;
-    }
-
-    .weeks-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
-
-    .week-card img {
-        height: 190px;
-    }
-
-    .details-box {
-        padding: 20px;
-    }
-
-    .details-box h1 {
-        font-size: 30px;
-    }
-
-    .details-box img {
-        height: 220px;
+    .container {
+        width: 90%;
     }
 }
-
 </style>
 </head>
 
 <body>
 
 <!-- NAVIGATION -->
-
-<nav class="navbar">
-
-    <div class="logo">🌿 HORTICULTURE</div>
+<nav>
+    <div class="logo">🌱 HortiWorld</div>
 
     <div class="nav-links">
-
-        <a href="#home"
-           id="homeNav"
-           class="active"
-           onclick="showPage('home')">
-           Home
-        </a>
-
-        <a href="#activities"
-           id="activitiesNav"
-           onclick="showPage('activities')">
-           Activities
-        </a>
-
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('activities')">Activities</button>
     </div>
-
 </nav>
 
-<!-- WELCOME PAGE -->
+<!-- HOME PAGE -->
+<section id="home" class="page active">
 
-<section class="hero" id="home">
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Growing a Greener Tomorrow!</h1>
 
-    <div class="hero-content">
+            <p>
+                Welcome to the world of Horticulture.
+                Discover the science of growing fruits, vegetables,
+                flowers and ornamental plants. Learn new skills
+                and explore sustainable ways to protect nature.
+            </p>
 
-        <div class="tagline">
-            Welcome to Horticulture
+            <button class="primary-btn" onclick="showPage('project')">
+                Explore Project →
+            </button>
         </div>
 
-        <h1>
-            Growing a <span>Greener</span> Tomorrow!
-        </h1>
-
-        <p>
-            Discover the beauty of nature, explore the world
-            of plants, and learn the art of growing a greener
-            and healthier environment.
-        </p>
-
-        <a href="#project"
-           class="main-btn"
-           onclick="showPage('project')">
-           Explore Project →
-        </a>
-
+        <img class="hero-image"
+        src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1000"
+        alt="Beautiful green garden">
     </div>
 
-</section>
+    <div class="container">
 
-<!-- HOME HIGHLIGHTS -->
+        <h2 class="section-title">Welcome to Horticulture</h2>
 
-<section class="highlights">
-
-    <div class="highlight-card">
-        <div class="emoji">🌱</div>
-        <h3>Plant Growing</h3>
-        <p>
-            Learn how to grow healthy plants and understand
-            their development.
+        <p class="section-subtitle">
+            Learn about plants, agriculture, gardening and
+            sustainable development.
         </p>
-    </div>
 
-    <div class="highlight-card">
-        <div class="emoji">🌻</div>
-        <h3>Garden Care</h3>
-        <p>
-            Discover gardening methods and techniques to
-            maintain beautiful gardens.
-        </p>
-    </div>
+        <div class="highlights">
 
-    <div class="highlight-card">
-        <div class="emoji">🌳</div>
-        <h3>Green Environment</h3>
-        <p>
-            Understand the importance of nature and contribute
-            to a greener planet.
-        </p>
-    </div>
+            <div class="highlight-card">
+                <div style="font-size:40px">🍎</div>
+                <h3>Fruit Cultivation</h3>
+                <p>Learn about fruit production and orchard management.</p>
+            </div>
 
+            <div class="highlight-card">
+                <div style="font-size:40px">🥬</div>
+                <h3>Vegetable Production</h3>
+                <p>Discover different vegetable crops and cultivation methods.</p>
+            </div>
+
+            <div class="highlight-card">
+                <div style="font-size:40px">🌻</div>
+                <h3>Flower Gardening</h3>
+                <p>Explore flowers, ornamental plants and garden design.</p>
+            </div>
+
+        </div>
+    </div>
 </section>
 
 <!-- PROJECT PAGE -->
+<section id="project" class="page">
 
-<section class="page-section" id="project">
+    <div class="container">
 
-    <div class="page-banner">
+        <h1 class="section-title">Discover the World of Horticulture</h1>
 
-        <small>HORTICULTURE MAIN PROJECT</small>
-
-        <h1>
-            Discover the <span>World of Horticulture.</span>
-        </h1>
-
-        <p>
-            Explore nature, learn new skills, and discover
-            sustainable ways to grow a greener future.
-            Learn about soil, plants, water and the environment
-            through five important horticulture practices.
+        <p class="section-subtitle">
+            Explore nature, learn new skills, and discover sustainable
+            ways to grow a greener future.
         </p>
 
+        <h2 class="section-title" style="font-size:27px">
+            Major Branches of Horticulture
+        </h2>
+
+        <br>
+
+        <div class="topic-grid">
+
+            <div class="topic-card">
+                <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?w=700" alt="Fruit crops">
+                <div class="topic-content">
+                    <h3>🍎 1. Pomology</h3>
+                    <p>Study of fruit crops, their cultivation, production and management.</p>
+                    <p><b>Examples:</b> Mango, Banana, Apple and Guava.</p>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=700" alt="Vegetable crops">
+                <div class="topic-content">
+                    <h3>🥕 2. Olericulture</h3>
+                    <p>Study of vegetable crops and their production techniques.</p>
+                    <p><b>Examples:</b> Tomato, Brinjal, Chilli and Cabbage.</p>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=700" alt="Flower crops">
+                <div class="topic-content">
+                    <h3>🌹 3. Floriculture</h3>
+                    <p>Study of flower cultivation, production and marketing.</p>
+                    <p><b>Examples:</b> Rose, Jasmine, Marigold and Chrysanthemum.</p>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700" alt="Landscape gardening">
+                <div class="topic-content">
+                    <h3>🌳 4. Landscape Gardening</h3>
+                    <p>Designing and maintaining gardens, parks and green spaces.</p>
+                    <p><b>Examples:</b> Home gardens, parks and lawns.</p>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=700" alt="Medicinal plants">
+                <div class="topic-content">
+                    <h3>🌿 5. Medicinal and Aromatic Plants</h3>
+                    <p>Study of plants used for medicines, perfumes and essential oils.</p>
+                    <p><b>Examples:</b> Tulsi, Aloe vera and Mint.</p>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=700" alt="Plantation crops">
+                <div class="topic-content">
+                    <h3>🌴 6. Plantation Crops</h3>
+                    <p>Study of commercially cultivated plantation crops.</p>
+                    <p><b>Examples:</b> Coconut, Tea, Coffee and Arecanut.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <br><br>
+
+        
+        <br><br>
+
+        <div style="text-align:center">
+            <button class="primary-btn" onclick="showPage('activities')">
+                Explore Activities →
+            </button>
+        </div>
+
     </div>
-
-    <div id="topicList"></div>
-
 </section>
 
-<!-- ACTIVITIES PAGE - 8 WEEKS -->
+<!-- ACTIVITIES PAGE -->
+<section id="activities" class="page">
 
-<section class="page-section" id="activities">
+    <div class="container">
 
-    <div class="page-banner">
+        <h1 class="section-title">Horticulture Activities</h1>
 
-        <small>PRACTICAL LEARNING PROGRAMME</small>
-
-        <h1>
-            Our <span>8 Weeks</span> Activities.
-        </h1>
-
-        <p>
-            Explore eight weeks of practical horticulture
-            learning. Each week introduces a new activity,
-            useful skills and hands-on experience.
+        <p class="section-subtitle">
+            Explore our 8-week learning journey and discover
+            interesting horticulture activities.
         </p>
 
+        <div class="week-grid" id="weekGrid"></div>
+
     </div>
-
-    <div class="weeks-grid" id="weeksGrid"></div>
-
 </section>
 
-<!-- DETAILS PAGE -->
+<!-- WEEK DETAILS PAGE -->
+<section id="weekDetails" class="page">
 
-<section class="details-section" id="details">
+    <div class="container">
 
-    <div class="details-box" id="detailsContent"></div>
+        <button class="back-btn" onclick="showPage('activities')">
+            ← Back to Activities
+        </button>
 
+        <div class="details-box" id="weekContent"></div>
+
+    </div>
 </section>
 
 <!-- FOOTER -->
-
 <footer>
-
-    <h3>🌿 Horticulture Learning Hub</h3>
-
-    <p>Learn Today, Grow Tomorrow!</p>
-
-    <p>© 2026 Horticulture Website. All Rights Reserved.</p>
-
+    <h3>🌱 HortiWorld</h3>
+    <p>Growing a Greener Tomorrow!</p>
+    <p>Learn | Grow | Protect Nature</p>
+    <p>© 2026 Horticulture Project. All Rights Reserved.</p>
 </footer>
 
 <script>
 
-/* FIVE MAIN PROJECT TOPICS */
+/* PAGE NAVIGATION */
 
-const topics = [
+function showPage(pageId) {
 
-{
-    title: "Soil Management",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
-    description: "Healthy soil supports stronger roots, better plant growth and improved crop production.",
-    objective: "Understand soil types, fertility and the importance of maintaining healthy soil.",
-    tasks: [
-        "Study different types of soil.",
-        "Learn soil preparation methods.",
-        "Understand organic manure and compost.",
-        "Study soil nutrients and fertility.",
-        "Learn methods to prevent soil erosion."
-    ],
-    outcome: "Students learn how to maintain fertile and healthy soil for sustainable horticulture."
-},
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
 
-{
-    title: "Natural Pest Control",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b",
-    description: "Protect plants naturally using organic methods, beneficial insects and eco-friendly solutions.",
-    objective: "Understand natural ways to protect plants from harmful pests.",
-    tasks: [
-        "Identify common garden pests.",
-        "Observe insects affecting plants.",
-        "Learn neem-based pest control.",
-        "Study biological pest control methods.",
-        "Understand organic plant protection."
-    ],
-    outcome: "Students understand environmentally friendly pest management practices."
-},
+    document.getElementById(pageId).classList.add('active');
 
-{
-    title: "Water Management",
-    image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735",
-    description: "Manage irrigation carefully and conserve water for healthy plant and crop development.",
-    objective: "Learn how to use water efficiently for plant growth.",
-    tasks: [
-        "Study different irrigation methods.",
-        "Understand drip irrigation.",
-        "Learn proper watering techniques.",
-        "Observe water requirements of plants.",
-        "Study rainwater harvesting."
-    ],
-    outcome: "Students learn how to conserve water and provide suitable irrigation."
-},
-
-{
-    title: "Crop Observation",
-    image: "https://images.unsplash.com/photo-1499529112087-3cb3b73cec95",
-    description: "Observe crop growth, leaf colour, plant health and changes during different growth stages.",
-    objective: "Develop observation skills and identify changes in plant development.",
-    tasks: [
-        "Observe plant height and growth.",
-        "Check leaf colour and condition.",
-        "Identify plant diseases.",
-        "Record crop development.",
-        "Compare healthy and unhealthy plants."
-    ],
-    outcome: "Students develop practical observation skills and understand crop growth."
-},
-
-{
-    title: "Community Learning",
-    image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18",
-    description: "Share gardening knowledge, participate in group activities and learn from local communities.",
-    objective: "Encourage teamwork and exchange of horticulture knowledge.",
-    tasks: [
-        "Participate in group discussions.",
-        "Learn from local gardeners and farmers.",
-        "Conduct gardening awareness activities.",
-        "Share horticulture knowledge.",
-        "Present group project results."
-    ],
-    outcome: "Students develop teamwork, communication and practical learning skills."
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
-];
-
-
-/* EIGHT WEEKS DATA */
+/* WEEK DATA */
 
 const weeks = [
 
 {
-    title: "Introduction to Horticulture",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b",
-    description: "Understand horticulture, its importance and different branches.",
-    objective: "Learn the basic concepts and importance of horticulture.",
-    tasks: [
-        "Introduction to horticulture.",
-        "Study the importance of plants.",
-        "Identify different horticulture branches.",
-        "Observe different garden plants."
+    title: "Week 1 - Introduction to Horticulture",
+    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700",
+    description: "Learn the basics and importance of horticulture.",
+    objective: "To understand horticulture, its branches and importance in agriculture.",
+    topics: [
+        "Definition of horticulture",
+        "Importance of horticulture",
+        "Major branches of horticulture",
+        "Scope and career opportunities"
     ],
-    outcome: "Students understand the basic concepts of horticulture."
+    activities: [
+        "Observe different garden plants.",
+        "Identify fruit, vegetable and flower crops.",
+        "Prepare a list of horticultural crops."
+    ],
+    outcome: "Understand the basic concepts and applications of horticulture."
 },
 
 {
-    title: "Soil Preparation",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
-    description: "Learn soil types, preparation techniques and organic manure.",
-    objective: "Understand how soil supports healthy plant growth.",
-    tasks: [
-        "Identify different soil types.",
-        "Study soil nutrients.",
-        "Learn soil preparation.",
-        "Prepare soil for planting."
+    title: "Week 2 - Classification of Horticultural Crops",
+    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=700",
+    description: "Explore the different categories of horticultural crops.",
+    objective: "To identify and classify different horticultural crops.",
+    topics: [
+        "Fruit crops - Pomology",
+        "Vegetable crops - Olericulture",
+        "Flower crops - Floriculture",
+        "Plantation and medicinal crops"
     ],
-    outcome: "Students learn proper soil preparation techniques."
+    activities: [
+        "Collect pictures of different crops.",
+        "Prepare a crop classification chart.",
+        "Identify local horticultural crops."
+    ],
+    outcome: "Understand the classification of horticultural crops."
 },
 
 {
-    title: "Seed Germination",
-    image: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e",
-    description: "Observe seeds developing into small plants through germination.",
-    objective: "Understand the process and conditions required for seed germination.",
-    tasks: [
-        "Collect healthy seeds.",
-        "Prepare seed containers.",
-        "Plant seeds in soil.",
-        "Observe seed germination."
+    title: "Week 3 - Plant Propagation",
+    image: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=700",
+    description: "Learn how plants are reproduced and multiplied.",
+    objective: "To understand sexual and asexual methods of plant propagation.",
+    topics: [
+        "Seed propagation",
+        "Vegetative propagation",
+        "Cutting and layering",
+        "Grafting and budding"
     ],
-    outcome: "Students understand the stages of seed germination."
+    activities: [
+        "Observe seed germination.",
+        "Practice simple plant propagation.",
+        "Identify different propagation methods."
+    ],
+    outcome: "Understand different methods of plant multiplication."
 },
 
 {
-    title: "Plant Propagation",
-    image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735",
-    description: "Explore different methods of producing new plants.",
-    objective: "Learn practical plant propagation techniques.",
-    tasks: [
-        "Study cutting methods.",
-        "Learn layering techniques.",
-        "Observe plant propagation.",
-        "Prepare new plants."
+    title: "Week 4 - Nursery Management",
+    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=700",
+    description: "Understand nursery preparation and plant care.",
+    objective: "To learn the basics of nursery establishment and management.",
+    topics: [
+        "Nursery site selection",
+        "Seed bed preparation",
+        "Potting mixtures",
+        "Watering and seedling care"
     ],
-    outcome: "Students gain knowledge about plant propagation."
+    activities: [
+        "Prepare a small nursery bed.",
+        "Fill pots with suitable potting mixture.",
+        "Observe seedling development."
+    ],
+    outcome: "Learn how to establish and maintain a nursery."
 },
 
 {
-    title: "Garden Maintenance",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae",
-    description: "Learn watering, pruning, cleaning and maintaining gardens.",
-    objective: "Understand the regular care required for healthy gardens.",
-    tasks: [
-        "Watering plants regularly.",
-        "Remove unwanted weeds.",
-        "Learn pruning techniques.",
-        "Clean and maintain garden areas."
+    title: "Week 5 - Soil, Irrigation and Fertilizers",
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=700",
+    description: "Learn about soil health and water management.",
+    objective: "To understand soil requirements and irrigation techniques.",
+    topics: [
+        "Soil types and properties",
+        "Irrigation methods",
+        "Manures and fertilizers",
+        "Drip irrigation and fertigation"
     ],
-    outcome: "Students learn how to maintain a healthy garden."
+    activities: [
+        "Observe different soil types.",
+        "Compare irrigation methods.",
+        "Prepare a simple watering schedule."
+    ],
+    outcome: "Understand proper soil and water management."
 },
 
 {
-    title: "Organic Gardening",
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999",
-    description: "Discover natural gardening practices and organic fertilizers.",
-    objective: "Understand eco-friendly gardening methods.",
-    tasks: [
-        "Prepare organic compost.",
-        "Learn organic manure usage.",
-        "Study natural fertilizers.",
-        "Understand eco-friendly gardening."
+    title: "Week 6 - Plant Protection and Management",
+    image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=700",
+    description: "Discover methods of protecting plants from pests and diseases.",
+    objective: "To understand plant health and crop protection.",
+    topics: [
+        "Common plant pests",
+        "Plant diseases",
+        "Weed management",
+        "Organic plant protection"
     ],
-    outcome: "Students understand organic gardening practices."
+    activities: [
+        "Observe plant symptoms.",
+        "Identify common garden pests.",
+        "Study safe and sustainable pest management."
+    ],
+    outcome: "Learn basic plant protection and management practices."
 },
 
 {
-    title: "Plant Diseases and Protection",
-    image: "https://images.unsplash.com/photo-1492496913980-501348b61469",
-    description: "Identify common plant diseases and learn how to protect crops.",
-    objective: "Understand plant health and basic disease prevention.",
-    tasks: [
-        "Identify common plant diseases.",
-        "Observe affected leaves.",
-        "Study pest prevention.",
-        "Learn plant protection methods."
+    title: "Week 7 - Training, Pruning and Greenhouse",
+    image: "https://images.unsplash.com/photo-1483794344563-d27a8d18014e?w=700",
+    description: "Explore plant shaping and protected cultivation.",
+    objective: "To learn training, pruning and greenhouse techniques.",
+    topics: [
+        "Training methods",
+        "Pruning techniques",
+        "Greenhouse cultivation",
+        "Hydroponics"
     ],
-    outcome: "Students learn basic plant protection techniques."
+    activities: [
+        "Observe trained plants.",
+        "Study greenhouse structures.",
+        "Learn about hydroponic cultivation."
+    ],
+    outcome: "Understand modern cultivation and plant management techniques."
 },
 
 {
-    title: "Final Project and Review",
-    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
-    description: "Complete a small horticulture project and review all learning activities.",
-    objective: "Apply the knowledge gained during eight weeks.",
-    tasks: [
-        "Prepare a small garden project.",
-        "Record plant growth.",
-        "Present project results.",
-        "Review all eight weeks of activities."
+    title: "Week 8 - Harvesting and Post-Harvest Management",
+    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=700",
+    description: "Learn how horticultural products are harvested and stored.",
+    objective: "To understand harvesting, storage and marketing.",
+    topics: [
+        "Harvesting methods",
+        "Maturity indices",
+        "Post-harvest handling",
+        "Storage and marketing"
     ],
-    outcome: "Students demonstrate their practical horticulture knowledge."
+    activities: [
+        "Observe maturity stages of fruits.",
+        "Study proper harvesting methods.",
+        "Prepare a post-harvest management chart."
+    ],
+    outcome: "Understand how to maintain the quality of horticultural products."
 }
 
 ];
 
+/* CREATE WEEK CARDS */
 
-/* DISPLAY FIVE MAIN TOPICS */
-
-const topicList = document.getElementById("topicList");
-
-topics.forEach((topic, index) => {
-
-    const row = document.createElement("div");
-
-    row.className = "topic-row";
-
-    row.innerHTML = `
-
-        <img src="${topic.image}" alt="${topic.title}">
-
-        <div class="topic-number">
-            0${index + 1}
-        </div>
-
-        <div class="topic-info">
-
-            <h2>${topic.title}</h2>
-
-            <p>${topic.description}</p>
-
-        </div>
-
-    `;
-
-    topicList.appendChild(row);
-
-});
-
-
-/* DISPLAY EIGHT WEEKS */
-
-const weeksGrid = document.getElementById("weeksGrid");
+const weekGrid = document.getElementById("weekGrid");
 
 weeks.forEach((week, index) => {
 
@@ -930,29 +776,19 @@ weeks.forEach((week, index) => {
     card.className = "week-card";
 
     card.innerHTML = `
-
         <img src="${week.image}" alt="${week.title}">
-
-        <div class="week-content">
-
-            <span>WEEK ${index + 1}</span>
-
+        <div class="week-info">
             <h3>${week.title}</h3>
-
             <p>${week.description}</p>
-
             <button onclick="openWeek(${index})">
                 Explore →
             </button>
-
         </div>
-
     `;
 
-    weeksGrid.appendChild(card);
+    weekGrid.appendChild(card);
 
 });
-
 
 /* OPEN WEEK DETAILS */
 
@@ -960,102 +796,39 @@ function openWeek(index) {
 
     const week = weeks[index];
 
-    document.getElementById("detailsContent").innerHTML = `
+    document.getElementById("weekContent").innerHTML = `
 
-        <img src="${week.image}" alt="${week.title}">
-
-        <span class="label">
-            HORTICULTURE PRACTICAL ACTIVITY - WEEK ${index + 1}
-        </span>
-
-        <h1>${week.title}</h1>
+        <h1 style="color:#207a3d">${week.title}</h1>
 
         <p>${week.description}</p>
 
-        <h3>Learning Objective</h3>
-
+        <h2>🎯 Learning Objective</h2>
         <p>${week.objective}</p>
 
-        <h3>Activities to Perform</h3>
-
+        <h2>📚 Topics Covered</h2>
         <ul>
-            ${week.tasks.map(task => `<li>${task}</li>`).join("")}
+            ${week.topics.map(topic => `<li>${topic}</li>`).join("")}
         </ul>
 
-        <h3>Expected Outcome</h3>
+        <h2>🧪 Practical Activities</h2>
+        <ul>
+            ${week.activities.map(activity => `<li>${activity}</li>`).join("")}
+        </ul>
 
+        <h2>🌱 Learning Outcome</h2>
         <p>${week.outcome}</p>
 
-        <button class="back-btn"
-            onclick="showPage('activities')">
-            ← Back to 8 Weeks
+        <br>
+
+        <button class="primary-btn"
+        onclick="showPage('activities')">
+            ← Back to All Weeks
         </button>
 
     `;
 
-    showPage("details");
-
+    showPage("weekDetails");
 }
-
-
-/* PAGE NAVIGATION */
-
-function showPage(page) {
-
-    const hero = document.querySelector(".hero");
-    const highlights = document.querySelector(".highlights");
-    const project = document.getElementById("project");
-    const activities = document.getElementById("activities");
-    const details = document.getElementById("details");
-    const footer = document.querySelector("footer");
-
-    hero.style.display = "none";
-    highlights.style.display = "none";
-    project.style.display = "none";
-    activities.style.display = "none";
-    details.style.display = "none";
-    footer.style.display = "block";
-
-    document.getElementById("homeNav").classList.remove("active");
-    document.getElementById("activitiesNav").classList.remove("active");
-
-    if (page === "home") {
-
-        hero.style.display = "flex";
-        highlights.style.display = "grid";
-
-        document.getElementById("homeNav").classList.add("active");
-
-    }
-
-    else if (page === "project") {
-
-        project.style.display = "block";
-
-    }
-
-    else if (page === "activities") {
-
-        activities.style.display = "block";
-
-        document.getElementById("activitiesNav").classList.add("active");
-
-    }
-
-    else if (page === "details") {
-
-        details.style.display = "block";
-
-    }
-
-    window.scrollTo(0, 0);
-
-}
-
-
-/* INITIAL PAGE */
-
-showPage("home");
 
 </script>
 
