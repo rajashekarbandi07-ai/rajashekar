@@ -1,487 +1,465 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Horticulture CSP Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<title>Horticulture CSP Project</title>
 
-        body {
-            font-family: Arial, sans-serif;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-        header {
-            background: #176b3a;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
+body {
+    background: #f1f8e9;
+    color: #263b28;
+}
 
-        header h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
+/* Header */
+header {
+    background: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
 
-        nav {
-            background: #104d2b;
-            padding: 15px;
-            text-align: center;
-        }
+header h1 {
+    font-size: 30px;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 15px;
-            font-weight: bold;
-        }
+/* Home Page */
+.hero {
+    min-height: 85vh;
+    background: linear-gradient(
+        rgba(0,50,0,0.6),
+        rgba(0,50,0,0.6)
+    ),
+    url("https://images.unsplash.com/photo-1416879595882-3373a0480b5b");
+    background-size: cover;
+    background-position: center;
 
-        .hero {
-            height: 85vh;
-            background:
-            linear-gradient(rgba(0,40,10,0.55),
-            rgba(0,40,10,0.55)),
-            url("https://images.unsplash.com/photo-1416879595882-3373a0480b5b");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-            background-size: cover;
-            background-position: center;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
+.hero h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
 
-        .hero h2 {
-            font-size: 45px;
-            margin-bottom: 20px;
-        }
+.hero p {
+    font-size: 19px;
+    margin-bottom: 25px;
+}
 
-        .hero p {
-            font-size: 20px;
-        }
+button {
+    border: none;
+    padding: 13px 25px;
+    border-radius: 6px;
+    background: #2e7d32;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
 
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 30px;
-            background: #32a852;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 8px;
-        }
+button:hover {
+    background: #1b5e20;
+}
 
-        .btn:hover {
-            background: #104d2b;
-        }
+.explore {
+    background: #ffeb3b;
+    color: #1b5e20;
+    font-weight: bold;
+}
 
-        footer {
-            background: #104d2b;
-            color: white;
-            text-align: center;
-            padding: 15px;
-        }
+/* Week Section */
+#weeksPage, #weekDetails {
+    display: none;
+    padding: 45px 7%;
+    text-align: center;
+}
 
-    </style>
+h2 {
+    color: #1b5e20;
+    margin-bottom: 20px;
+}
+
+.week-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.week-card {
+    background: white;
+    padding: 30px 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.week-card:hover {
+    transform: translateY(-7px);
+    background: #dcedc8;
+}
+
+.week-card h3 {
+    color: #2e7d32;
+    margin-bottom: 12px;
+    font-size: 21px;
+}
+
+.week-card p {
+    line-height: 1.5;
+}
+
+.details-box {
+    background: white;
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    text-align: left;
+    line-height: 1.9;
+}
+
+.details-box h3 {
+    color: #2e7d32;
+    margin-top: 20px;
+}
+
+.details-box ul {
+    padding-left: 25px;
+}
+
+.back {
+    margin: 10px;
+}
+
+footer {
+    background: #1b5e20;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+@media(max-width:600px) {
+    .hero h2 {
+        font-size: 29px;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    .details-box {
+        padding: 20px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <h1>🌿 HORTICULTURE CSP PROJECT</h1>
-        <p>Green Environment – Healthy Future</p>
-    </header>
+<header>
+    <h1>🌱 HORTICULTURE CSP PROJECT</h1>
+    <p>Growing Green - Creating a Better Future</p>
+</header>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Project</a>
-        <a href="#">Contact</a>
-    </nav>
+<!-- HOME PAGE -->
 
-    <div class="hero">
+<div class="hero" id="homePage">
 
-        <div>
-            <h2>Grow Green, Live Green</h2>
+    <h2>Welcome to Horticulture</h2>
 
-            <p>
-                Promoting Plants, Gardening and
-                Environmental Protection.
-            </p>
+    <p>
+        Plant Trees, Save Nature,
+        Protect Our Future.
+    </p>
 
-            <a href="#" class="btn">Explore Project</a>
+    <button class="explore" onclick="showWeeks()">
+        Explore Project
+    </button>
+
+</div>
+
+
+<!-- 8 WEEKS PAGE -->
+
+<section id="weeksPage">
+
+    <h2>HORTICULTURE CSP - 8 WEEKS</h2>
+
+    <p>Select any week to view the project details.</p>
+
+    <div class="week-container">
+
+        <div class="week-card" onclick="openWeek(1)">
+            <h3>Week 1</h3>
+            <p>Introduction to Horticulture</p>
+        </div>
+
+        <div class="week-card" onclick="openWeek(2)">
+            <h3>Week 2</h3>
+            <p>Types of Horticulture Plants</p>
+        </div>
+
+        <div class="week-card" onclick="openWeek(3)">
+            <h3>Week 3</h3>
+            <p>Soil Preparation</p>
+        </div>
+
+        <div class="week-card" onclick="openWeek(4)">
+            <h3>Week 4</h3>
+            <p>Seed Sowing and Planting</p>
+        </div>
+
+        <div class="week-card" onclick="openWeek(5)">
+            <h3>Week 5</h3>
+            <p>Water Management</p>
+        </div>
+
+        <div class="week-card" onclick="openWeek(6)">
+            <h3>Week 6</h3>
+            <p>Organic Manures and Fertilizers</p>
+        </div>
+
+        <div class="week-card" onclick="openWeek(7)">
+            <h3>Week 7</h3>
+            <p>Plant Care and Maintenance</p>
+        </div>
+
+        <div class="week-card" onclick="openWeek(8)">
+            <h3>Week 8</h3>
+            <p>Results and Conclusion</p>
         </div>
 
     </div>
 
-    <footer>
-        <p>🌱 Save Plants | Save Nature | Save Life</p>
-    </footer>
+    <br>
+    <button onclick="goHome()">Back to Home</button>
 
-</body>
-</html>
+</section>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Horticulture CSP Project</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: Arial, sans-serif;
-        }
+<!-- WEEK DETAILS PAGE -->
 
-        header {
-            background: #176b3a;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
+<section id="weekDetails">
 
-        nav {
-            background: #104d2b;
-            padding: 15px;
-            text-align: center;
-        }
+    <h2 id="weekTitle"></h2>
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 15px;
-        }
+    <div class="details-box">
 
-        .hero {
-            height: 85vh;
-            background:
-            linear-gradient(rgba(0,40,10,.55),
-            rgba(0,40,10,.55)),
-            url("https://images.unsplash.com/photo-1416879595882-3373a0480b5b");
+        <h3>Topic:</h3>
+        <p id="topic"></p>
 
-            background-size: cover;
-            background-position: center;
+        <h3>Objective:</h3>
+        <p id="objective"></p>
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
+        <h3>Activities Performed:</h3>
+        <ul id="activities"></ul>
 
-        .hero h2 {
-            font-size: 45px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 30px;
-            background: #32a852;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 8px;
-        }
-
-        .btn:hover {
-            background: #104d2b;
-        }
-
-        footer {
-            background: #104d2b;
-            color: white;
-            text-align: center;
-            padding: 15px;
-        }
-    </style>
-</head>
-
-<body>
-
-    <header>
-        <h1>🌿 HORTICULTURE CSP PROJECT</h1>
-        <p>Green Environment – Healthy Future</p>
-    </header>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Horticulture CSP - 8 Weeks</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f1f8f1;
-            color: #333;
-        }
-
-        header {
-            background: #176b3a;
-            color: white;
-            text-align: center;
-            padding: 30px;
-        }
-
-        nav {
-            background: #104d2b;
-            padding: 15px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 15px;
-            font-weight: bold;
-        }
-
-        .intro {
-            text-align: center;
-            padding: 35px 15px;
-        }
-
-        .intro h2 {
-            color: #176b3a;
-            margin-bottom: 15px;
-        }
-
-        .weeks {
-            display: grid;
-            grid-template-columns:
-            repeat(auto-fit, minmax(230px, 1fr));
-            gap: 25px;
-            padding: 20px 8%;
-        }
-
-        .week-box {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 12px #0002;
-            border-top: 5px solid #218747;
-            transition: 0.3s;
-        }
-
-        .week-box:hover {
-            transform: translateY(-8px);
-        }
-
-        .week-box h2 {
-            color: #176b3a;
-            margin-bottom: 15px;
-        }
-
-        .week-box h3 {
-            color: #218747;
-            margin-bottom: 12px;
-        }
-
-        .week-box p {
-            line-height: 1.6;
-        }
-
-        .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .back {
-            display: inline-block;
-            background: #176b3a;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 6px;
-            margin: 30px;
-        }
-
-        footer {
-            background: #104d2b;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        @media(max-width: 600px) {
-            .weeks {
-                padding: 15px;
-            }
-        }
-
-    </style>
-</head>
-
-<body>
-
-    <header>
-        <h1>🌿 HORTICULTURE CSP PROJECT</h1>
-        <p>Green Environment – Healthy Future</p>
-    </header>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="project.html">Project Details</a>
-    </nav>
-
-    <div class="intro">
-        <h2>8 Weeks Community Service Project</h2>
-        <p>
-            Our Horticulture CSP project activities
-            conducted over eight weeks.
-        </p>
-    </div>
-
-    <div class="weeks">
-
-        <!-- WEEK 1 -->
-        <div class="week-box">
-            <div class="icon">🌱</div>
-            <h2>WEEK 1</h2>
-            <h3>Introduction to Horticulture</h3>
-            <p>
-                Understanding horticulture, its importance,
-                types of plants and their uses in daily life.
-            </p>
-        </div>
-
-        <!-- WEEK 2 -->
-        <div class="week-box">
-            <div class="icon">🔍</div>
-            <h2>WEEK 2</h2>
-            <h3>Survey of Local Area</h3>
-            <p>
-                Visiting local gardens and farms and
-                collecting information about plants.
-            </p>
-        </div>
-
-        <!-- WEEK 3 -->
-        <div class="week-box">
-            <div class="icon">🌳</div>
-            <h2>WEEK 3</h2>
-            <h3>Plant Identification</h3>
-            <p>
-                Identifying fruit plants, vegetable plants,
-                flowering plants and medicinal plants.
-            </p>
-        </div>
-
-        <!-- WEEK 4 -->
-        <div class="week-box">
-            <div class="icon">🪴</div>
-            <h2>WEEK 4</h2>
-            <h3>Soil Preparation</h3>
-            <p>
-                Learning about soil types, soil fertility,
-                compost and land preparation.
-            </p>
-        </div>
-
-        <!-- WEEK 5 -->
-        <div class="week-box">
-            <div class="icon">🌿</div>
-            <h2>WEEK 5</h2>
-            <h3>Seed Sowing</h3>
-            <p>
-                Learning seed selection, seed sowing,
-                nursery preparation and plant growth.
-            </p>
-        </div>
-
-        <!-- WEEK 6 -->
-        <div class="week-box">
-            <div class="icon">💧</div>
-            <h2>WEEK 6</h2>
-            <h3>Water Management</h3>
-            <p>
-                Understanding irrigation methods,
-                water conservation and plant watering.
-            </p>
-        </div>
-
-        <!-- WEEK 7 -->
-        <div class="week-box">
-            <div class="icon">🌻</div>
-            <h2>WEEK 7</h2>
-            <h3>Plantation and Maintenance</h3>
-            <p>
-                Planting saplings, removing weeds,
-                applying manure and maintaining plants.
-            </p>
-        </div>
-
-        <!-- WEEK 8 -->
-        <div class="week-box">
-            <div class="icon">🏆</div>
-            <h2>WEEK 8</h2>
-            <h3>Results and Conclusion</h3>
-            <p>
-                Observing plant growth, collecting results,
-                preparing project reports and conclusions.
-            </p>
-        </div>
+        <h3>Learning Outcomes:</h3>
+        <p id="outcomes"></p>
 
     </div>
 
-    <center>
-        <a href="index.html" class="back">
-            ← Back to Home
-        </a>
-    </center>
+    <button class="back" onclick="backToWeeks()">
+        ← Back to Weeks
+    </button>
 
-    <footer>
-        <h3>🌿 Horticulture CSP Project</h3>
-        <p>Save Plants | Save Nature | Save Life</p>
-    </footer>
+</section>
 
-</body>
-</html>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="project.html">Project</a>
-    </nav>
+<footer>
+    <p>© 2026 Horticulture Community Service Project</p>
+    <p>Save Trees | Save Nature | Save Future 🌱</p>
+</footer>
 
-    <div class="hero">
-        <div>
-            <h2>Grow Green, Live Green</h2>
 
-            <p>
-                Promoting Plants, Gardening and
-                Environmental Protection.
-            </p>
+<script>
 
-            <a href="project.html" class="btn">
-                Explore Project
-            </a>
-        </div>
-    </div>
+// Show 8 Weeks
 
-    <footer>
-        <p>🌱 Save Plants | Save Nature | Save Life</p>
-    </footer>
+function showWeeks() {
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("weeksPage").style.display = "block";
+    document.getElementById("weekDetails").style.display = "none";
+    window.scrollTo(0,0);
+}
+
+// Week Data
+
+const weekData = {
+
+1: {
+title: "WEEK 1 - Introduction to Horticulture",
+topic: "Introduction and importance of horticulture.",
+objective: "To understand horticulture and its importance in our daily life and environment.",
+activities: [
+"Introduction to horticulture.",
+"Understanding the importance of plants.",
+"Visiting gardens and nearby nurseries.",
+"Identifying different types of plants."
+],
+outcomes: "We learned the basic concepts of horticulture and understood how plants help humans and the environment."
+},
+
+2: {
+title: "WEEK 2 - Types of Horticulture Plants",
+topic: "Different categories of horticulture plants.",
+objective: "To identify different types of plants and their uses.",
+activities: [
+"Identifying fruit plants like Mango and Guava.",
+"Observing vegetable plants like Tomato and Brinjal.",
+"Identifying flower plants like Rose and Jasmine.",
+"Learning about medicinal plants like Tulsi and Neem."
+],
+outcomes: "We understood the different categories of horticultural plants and their benefits."
+},
+
+3: {
+title: "WEEK 3 - Soil Preparation",
+topic: "Soil types and preparation for gardening.",
+objective: "To learn how to prepare suitable soil for healthy plant growth.",
+activities: [
+"Observing different soil types.",
+"Understanding the importance of fertile soil.",
+"Removing stones and weeds.",
+"Mixing soil with compost and organic matter."
+],
+outcomes: "We learned how soil preparation helps in better plant growth."
+},
+
+4: {
+title: "WEEK 4 - Seed Sowing and Planting",
+topic: "Methods of seed sowing and planting.",
+objective: "To understand the process of growing plants from seeds.",
+activities: [
+"Selecting healthy seeds.",
+"Preparing seed beds and containers.",
+"Sowing seeds at suitable depth.",
+"Observing seed germination."
+],
+outcomes: "We learned the basic techniques of seed sowing and planting."
+},
+
+5: {
+title: "WEEK 5 - Water Management",
+topic: "Importance of water and irrigation methods.",
+objective: "To understand the importance of proper watering for plant growth.",
+activities: [
+"Learning different watering methods.",
+"Observing drip irrigation.",
+"Understanding the importance of water conservation.",
+"Practicing proper watering techniques."
+],
+outcomes: "We understood how proper water management supports healthy plants and saves water."
+},
+
+6: {
+title: "WEEK 6 - Organic Manures and Fertilizers",
+topic: "Use of organic manure and natural fertilizers.",
+objective: "To understand the importance of organic manure for soil fertility.",
+activities: [
+"Learning about compost preparation.",
+"Understanding the uses of cow dung manure.",
+"Observing vermicomposting.",
+"Understanding the disadvantages of excessive chemical fertilizers."
+],
+outcomes: "We learned about organic farming methods and natural ways to improve soil fertility."
+},
+
+7: {
+title: "WEEK 7 - Plant Care and Maintenance",
+topic: "Maintaining plants and protecting them from pests.",
+objective: "To learn how to maintain healthy plants.",
+activities: [
+"Removing weeds around plants.",
+"Pruning dry and damaged branches.",
+"Observing common plant pests.",
+"Maintaining plants through regular watering."
+],
+outcomes: "We learned the importance of regular plant care and maintenance."
+},
+
+8: {
+title: "WEEK 8 - Results and Conclusion",
+topic: "Final observations and project conclusion.",
+objective: "To review the activities performed during the eight weeks.",
+activities: [
+"Reviewing all horticulture activities.",
+"Observing plant growth.",
+"Understanding environmental benefits.",
+"Creating awareness about gardening in the community."
+],
+outcomes: "The project helped us understand the importance of horticulture, environmental protection and sustainable gardening."
+}
+
+};
+
+
+// Open Individual Week
+
+function openWeek(number) {
+
+    const data = weekData[number];
+
+    document.getElementById("weeksPage").style.display = "none";
+    document.getElementById("weekDetails").style.display = "block";
+
+    document.getElementById("weekTitle").innerText = data.title;
+    document.getElementById("topic").innerText = data.topic;
+    document.getElementById("objective").innerText = data.objective;
+    document.getElementById("outcomes").innerText = data.outcomes;
+
+    const activityList = document.getElementById("activities");
+
+    activityList.innerHTML = "";
+
+    data.activities.forEach(function(activity) {
+        const li = document.createElement("li");
+        li.innerText = activity;
+        activityList.appendChild(li);
+    });
+
+    window.scrollTo(0,0);
+}
+
+
+// Back to Weeks
+
+function backToWeeks() {
+    document.getElementById("weekDetails").style.display = "none";
+    document.getElementById("weeksPage").style.display = "block";
+    window.scrollTo(0,0);
+}
+
+
+// Back to Home
+
+function goHome() {
+    document.getElementById("weeksPage").style.display = "none";
+    document.getElementById("weekDetails").style.display = "none";
+    document.getElementById("homePage").style.display = "flex";
+    window.scrollTo(0,0);
+}
+
+</script>
 
 </body>
 </html>
