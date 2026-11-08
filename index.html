@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Horticulture CSP Project</title>
 
 <style>
@@ -19,49 +20,56 @@ body {
     color: #263b28;
 }
 
-/* HEADER */
 header {
     background: #14532d;
     color: white;
+    padding: 25px;
     text-align: center;
-    padding: 25px 10px;
 }
 
-/* HOME */
-#home {
+header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+/* HOME PAGE */
+
+#homePage {
     min-height: 85vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 25px;
     color: white;
+    padding: 25px;
 
     background:
     linear-gradient(rgba(0,50,0,.65),rgba(0,50,0,.65)),
     url("https://images.unsplash.com/photo-1416879595882-3373a0480b5b");
 
-    background-size: cover;
     background-position: center;
+    background-size: cover;
 }
 
-#home h2 {
+#homePage h2 {
     font-size: 42px;
     margin-bottom: 20px;
 }
 
-#home p {
+#homePage p {
     font-size: 19px;
     margin-bottom: 25px;
 }
 
+/* BUTTONS */
+
 button {
-    padding: 13px 25px;
-    border: none;
-    border-radius: 6px;
     background: #2e7d32;
     color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
 }
@@ -76,17 +84,18 @@ button:hover {
     font-weight: bold;
 }
 
-/* MAIN CONTENT */
-#project {
+/* WEEKS PAGE */
+
+#weeksPage {
     display: none;
-    padding: 40px 7%;
-    min-height: 70vh;
+    padding: 45px 7%;
+    min-height: 80vh;
 }
 
 .heading {
     text-align: center;
-    margin-bottom: 30px;
     color: #1b5e20;
+    margin-bottom: 30px;
 }
 
 .week-grid {
@@ -95,7 +104,7 @@ button:hover {
     gap: 20px;
 }
 
-.week {
+.week-card {
     background: white;
     padding: 30px 15px;
     text-align: center;
@@ -105,25 +114,22 @@ button:hover {
     transition: .3s;
 }
 
-.week:hover {
+.week-card:hover {
     transform: translateY(-6px);
     background: #dcedc8;
 }
 
-.week h3 {
+.week-card h3 {
     color: #2e7d32;
     margin-bottom: 12px;
 }
 
-.week p {
-    line-height: 1.5;
-}
+/* DETAILS PAGE */
 
-/* DETAILS */
-#details {
+#detailsPage {
     display: none;
-    padding: 35px 7%;
-    min-height: 70vh;
+    padding: 40px 7%;
+    min-height: 80vh;
 }
 
 .details-box {
@@ -132,8 +138,8 @@ button:hover {
     margin: auto;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,.1);
-    line-height: 1.8;
+    box-shadow: 0 3px 12px rgba(0,0,0,.12);
+    line-height: 1.9;
 }
 
 .details-box h2 {
@@ -143,7 +149,7 @@ button:hover {
 
 .details-box h3 {
     color: #2e7d32;
-    margin-top: 18px;
+    margin-top: 20px;
 }
 
 .details-box ul {
@@ -154,7 +160,6 @@ button:hover {
     margin-top: 25px;
 }
 
-/* FOOTER */
 footer {
     background: #14532d;
     color: white;
@@ -162,19 +167,18 @@ footer {
     padding: 20px;
 }
 
-/* MOBILE */
-@media(max-width: 800px) {
+@media(max-width:800px) {
     .week-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,1fr);
     }
 }
 
-@media(max-width: 450px) {
+@media(max-width:450px) {
     .week-grid {
         grid-template-columns: 1fr;
     }
 
-    #home h2 {
+    #homePage h2 {
         font-size: 29px;
     }
 
@@ -192,65 +196,65 @@ footer {
     <p>Growing Green - Creating a Better Future</p>
 </header>
 
-<!-- HOME PAGE -->
+<!-- PAGE 1: HOME -->
 
-<section id="home">
+<section id="homePage">
 
     <h2>Welcome to Horticulture</h2>
 
     <p>Plant Trees, Save Nature, Protect Our Future.</p>
 
-    <button class="explore" onclick="showProject()">
+    <button class="explore" onclick="navigateTo('weeks')">
         Explore Project
     </button>
 
 </section>
 
 
-<!-- 8 WEEKS PAGE -->
+<!-- PAGE 2: EIGHT WEEKS -->
 
-<section id="project">
+<section id="weeksPage">
 
     <h2 class="heading">HORTICULTURE CSP - 8 WEEKS</h2>
 
     <div class="week-grid">
 
-        <div class="week" onclick="openWeek(1)">
+        <div class="week-card" onclick="navigateTo('week1')">
             <h3>WEEK 01</h3>
             <p>Introduction to Horticulture</p>
         </div>
 
-        <div class="week" onclick="openWeek(2)">
+        <div class="week-card" onclick="navigateTo('week2')">
             <h3>WEEK 02</h3>
             <p>Types of Plants</p>
         </div>
 
-        <div class="week" onclick="openWeek(3)">
+        <div class="week-card" onclick="navigateTo('week3')">
             <h3>WEEK 03</h3>
             <p>Soil Preparation</p>
         </div>
 
-        <div class="week" onclick="openWeek(4)">
+        <div class="week-card" onclick="navigateTo('week4')">
             <h3>WEEK 04</h3>
             <p>Seed Sowing and Planting</p>
         </div>
 
-        <div class="week" onclick="openWeek(5)">
+        <div class="week-card" onclick="navigateTo('week5')">
             <h3>WEEK 05</h3>
             <p>Water Management</p>
         </div>
 
-        <div class="week" onclick="openWeek(6)">
+        <div class="week-card" onclick="navigateTo('week6')">
             <h3>WEEK 06</h3>
             <p>Organic Manures</p>
         </div>
 
-        <div class="week" onclick="openWeek(7)">
+        <div class="week-card" onclick="navigateTo('week7')">
             <h3>WEEK 07</h3>
             <p>Plant Care and Maintenance</p>
         </div>
 
-        <div class="week" onclick="openWeek(8)">
+        <div class="week-card" onclick="navigateTo('week8')">
             <h3>WEEK 08</h3>
             <p>Results and Conclusion</p>
         </div>
@@ -258,7 +262,7 @@ footer {
     </div>
 
     <center>
-        <button class="back" onclick="goHome()">
+        <button class="back" onclick="navigateTo('home')">
             ← Back to Home
         </button>
     </center>
@@ -266,9 +270,9 @@ footer {
 </section>
 
 
-<!-- WEEK DETAILS -->
+<!-- PAGE 3: WEEK DETAILS -->
 
-<section id="details">
+<section id="detailsPage">
 
     <div class="details-box">
 
@@ -286,7 +290,7 @@ footer {
         <h3>Learning Outcomes</h3>
         <p id="outcomes"></p>
 
-        <button onclick="backToWeeks()" class="back">
+        <button class="back" onclick="navigateTo('weeks')">
             ← Back to 8 Weeks
         </button>
 
@@ -303,7 +307,7 @@ footer {
 
 <script>
 
-// WEEK INFORMATION
+// 8 WEEKS DATA
 
 const weeks = {
 1: {
@@ -329,7 +333,7 @@ activities: [
 "Observing flower plants.",
 "Learning about medicinal plants."
 ],
-outcomes: "We understood the different categories and uses of horticulture plants."
+outcomes: "We understood different categories and uses of horticulture plants."
 },
 
 3: {
@@ -400,7 +404,7 @@ outcomes: "We learned how to maintain plants and protect them from damage."
 8: {
 title: "WEEK 08 - Results and Conclusion",
 topic: "Project results and final observations.",
-objective: "To review the activities performed during the eight weeks.",
+objective: "To review the activities performed during eight weeks.",
 activities: [
 "Reviewing all project activities.",
 "Observing plant growth.",
@@ -412,60 +416,83 @@ outcomes: "The project helped us understand horticulture, gardening and environm
 };
 
 
-// SHOW PROJECT
+// PAGE NAVIGATION
 
-function showProject() {
-    document.getElementById("home").style.display = "none";
-    document.getElementById("project").style.display = "block";
-    document.getElementById("details").style.display = "none";
+function navigateTo(page) {
+
+    history.pushState({page: page}, "", "#" + page);
+
+    showPage(page);
+}
+
+
+// DISPLAY CORRECT PAGE
+
+function showPage(page) {
+
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("weeksPage").style.display = "none";
+    document.getElementById("detailsPage").style.display = "none";
+
+    if (page === "home") {
+        document.getElementById("homePage").style.display = "flex";
+    }
+
+    else if (page === "weeks") {
+        document.getElementById("weeksPage").style.display = "block";
+    }
+
+    else if (page.startsWith("week")) {
+
+        let number = Number(page.replace("week", ""));
+        let data = weeks[number];
+
+        if (!data) {
+            showPage("home");
+            return;
+        }
+
+        document.getElementById("detailsPage").style.display = "block";
+
+        document.getElementById("weekTitle").innerText = data.title;
+        document.getElementById("topic").innerText = data.topic;
+        document.getElementById("objective").innerText = data.objective;
+        document.getElementById("outcomes").innerText = data.outcomes;
+
+        let list = document.getElementById("activities");
+        list.innerHTML = "";
+
+        data.activities.forEach(function(item) {
+            let li = document.createElement("li");
+            li.textContent = item;
+            list.appendChild(li);
+        });
+    }
+
     window.scrollTo(0, 0);
 }
 
 
-// OPEN INDIVIDUAL WEEK
+// BROWSER BACK BUTTON SUPPORT
 
-function openWeek(number) {
+window.addEventListener("popstate", function() {
 
-    let data = weeks[number];
+    let page = location.hash.replace("#", "") || "home";
 
-    document.getElementById("project").style.display = "none";
-    document.getElementById("details").style.display = "block";
+    showPage(page);
 
-    document.getElementById("weekTitle").innerText = data.title;
-    document.getElementById("topic").innerText = data.topic;
-    document.getElementById("objective").innerText = data.objective;
-    document.getElementById("outcomes").innerText = data.outcomes;
-
-    let list = document.getElementById("activities");
-    list.innerHTML = "";
-
-    data.activities.forEach(function(item) {
-        let li = document.createElement("li");
-        li.textContent = item;
-        list.appendChild(li);
-    });
-
-    window.scrollTo(0, 0);
-}
+});
 
 
-// BACK TO WEEKS
+// INITIAL PAGE
 
-function backToWeeks() {
-    document.getElementById("details").style.display = "none";
-    document.getElementById("project").style.display = "block";
-    window.scrollTo(0, 0);
-}
+window.addEventListener("DOMContentLoaded", function() {
 
+    let page = location.hash.replace("#", "") || "home";
 
-// BACK TO HOME
+    showPage(page);
 
-function goHome() {
-    document.getElementById("project").style.display = "none";
-    document.getElementById("details").style.display = "none";
-    document.getElementById("home").style.display = "flex";
-    window.scrollTo(0, 0);
-}
+});
 
 </script>
 
