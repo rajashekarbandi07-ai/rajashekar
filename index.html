@@ -14,13 +14,11 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-    background: #f4f8f1;
-    color: #263b29;
+    background: #f7f7f1;
+    color: #173b2c;
 }
 
 /* NAVIGATION */
@@ -30,35 +28,42 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 25px 7%;
+    padding: 24px 6%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 10;
+    z-index: 100;
 }
 
 .logo {
     color: white;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: bold;
     letter-spacing: 1px;
 }
 
 .nav-links {
     display: flex;
-    gap: 35px;
+    gap: 30px;
+    align-items: center;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 17px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 9px 15px;
+    border-radius: 25px;
     transition: 0.3s;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
 }
 
-.nav-links a:hover {
-    color: #b9ff9b;
+.nav-links a:hover,
+.nav-links a.active {
+    background: #e6bd42;
+    color: #173b2c;
+    text-shadow: none;
 }
 
 /* WELCOME PAGE */
@@ -85,31 +90,37 @@ body {
     color: white;
 }
 
-.hero-content .tagline {
-    color: #c8ffb5;
-    font-size: 18px;
-    letter-spacing: 4px;
+.tagline {
+    color: #e6c15a;
+    font-size: 15px;
+    letter-spacing: 5px;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .hero-content h1 {
-    font-size: 58px;
-    line-height: 1.2;
+    font-family: Georgia, serif;
+    font-size: 65px;
+    line-height: 1.15;
     margin-bottom: 25px;
 }
 
+.hero-content h1 span {
+    color: #e8bd42;
+    font-style: italic;
+}
+
 .hero-content p {
-    font-size: 19px;
+    font-size: 18px;
     line-height: 1.8;
     margin-bottom: 35px;
 }
 
-.explore-btn {
+.main-btn {
     display: inline-block;
     padding: 15px 38px;
-    background: #7bc043;
-    color: white;
+    background: #e0b536;
+    color: #173b2c;
     text-decoration: none;
     font-size: 17px;
     font-weight: bold;
@@ -117,36 +128,36 @@ body {
     transition: 0.3s;
 }
 
-.explore-btn:hover {
-    background: #4c9625;
+.main-btn:hover {
+    background: white;
     transform: translateY(-4px);
 }
 
-/* HIGHLIGHTS */
+/* HOME HIGHLIGHTS */
 
 .highlights {
     padding: 65px 7%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
-    background: #f4f8f1;
+    background: #f7f7f1;
 }
 
 .highlight-card {
     background: white;
     padding: 35px 25px;
     text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
     transition: 0.3s;
 }
 
 .highlight-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-7px);
 }
 
-.highlight-card .emoji {
-    font-size: 45px;
+.emoji {
+    font-size: 42px;
     margin-bottom: 15px;
 }
 
@@ -157,204 +168,359 @@ body {
 
 .highlight-card p {
     color: #667568;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
-/* ACTIVITIES PAGE */
+/* COMMON PAGE */
 
-.activities-section {
+.page-section {
     display: none;
-    padding: 110px 7% 60px;
     min-height: 100vh;
+    padding: 105px 6% 45px;
+    background: #f7f7f1;
 }
 
-.section-heading {
-    text-align: center;
-    margin-bottom: 45px;
+/* PAGE BANNER */
+
+.page-banner {
+    background: #103e2c;
+    color: white;
+    padding: 30px 35px;
+    margin-bottom: 18px;
 }
 
-.section-heading h1 {
-    font-size: 38px;
-    color: #27632b;
-    margin-bottom: 12px;
+.page-banner small {
+    color: #e2b941;
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
-.section-heading p {
-    color: #647568;
-    font-size: 17px;
+.page-banner h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    margin: 12px 0;
 }
 
-.activities-grid {
+.page-banner h1 span {
+    color: #e3b735;
+    font-style: italic;
+}
+
+.page-banner p {
+    color: #dce8df;
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 650px;
+}
+
+/* PROJECT - FIVE TOPICS */
+
+.topic-row {
+    display: grid;
+    grid-template-columns: 125px 55px 1fr;
+    align-items: center;
+    gap: 22px;
+    padding: 13px 12px;
+    border-bottom: 1px solid #deded5;
+    transition: 0.3s;
+}
+
+.topic-row:hover {
+    background: #edf1e7;
+}
+
+.topic-row img {
+    width: 115px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.topic-number {
+    color: #ad8125;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.topic-info h2 {
+    font-family: Georgia, serif;
+    color: #143c2b;
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+.topic-info p {
+    color: #68736a;
+    font-size: 12px;
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+/* 8 WEEKS ACTIVITIES */
+
+.weeks-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    gap: 22px;
+    margin-top: 25px;
 }
 
 .week-card {
     background: white;
-    border-radius: 15px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
     transition: 0.3s;
 }
 
 .week-card:hover {
-    transform: translateY(-7px);
+    transform: translateY(-6px);
 }
 
 .week-card img {
     width: 100%;
-    height: 180px;
+    height: 155px;
     object-fit: cover;
 }
 
 .week-content {
-    padding: 22px;
+    padding: 18px;
 }
 
 .week-content span {
     display: inline-block;
-    background: #e5f5dc;
-    color: #347c2e;
-    padding: 6px 12px;
+    color: #99741e;
+    background: #f6edcf;
+    padding: 5px 11px;
+    font-size: 11px;
     border-radius: 20px;
-    font-size: 13px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .week-content h3 {
-    color: #27632b;
-    margin-bottom: 12px;
+    font-family: Georgia, serif;
+    font-size: 21px;
+    color: #173e2c;
+    margin-bottom: 9px;
 }
 
 .week-content p {
-    color: #667568;
+    color: #68736a;
+    font-size: 12px;
     line-height: 1.6;
-    font-size: 14px;
+    min-height: 58px;
 }
 
 .week-content button {
-    margin-top: 18px;
-    background: #4c963b;
+    margin-top: 13px;
+    background: #17452e;
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 22px;
     cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .week-content button:hover {
-    background: #286a28;
+    background: #d3a72e;
+    color: #173b2c;
 }
 
-/* ACTIVITY DETAILS */
+/* DETAILS PAGE */
 
 .details-section {
     display: none;
     min-height: 100vh;
-    padding: 120px 8% 60px;
+    padding: 115px 7% 55px;
+    background: #f7f7f1;
 }
 
 .details-box {
-    max-width: 850px;
+    max-width: 1000px;
     margin: auto;
     background: white;
     padding: 40px;
-    border-radius: 18px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.details-box img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    margin-bottom: 25px;
+}
+
+.details-box .label {
+    color: #a17a24;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 13px;
 }
 
 .details-box h1 {
-    color: #27632b;
-    margin-bottom: 20px;
+    font-family: Georgia, serif;
+    font-size: 42px;
+    color: #173e2c;
+    margin: 15px 0;
 }
 
 .details-box p {
     line-height: 1.8;
-    color: #56675a;
-    margin-bottom: 15px;
+    color: #647268;
+    margin-bottom: 18px;
 }
 
 .details-box h3 {
-    color: #347c2e;
-    margin: 22px 0 12px;
+    color: #27632b;
+    margin: 25px 0 12px;
+    font-family: Georgia, serif;
+    font-size: 23px;
 }
 
 .details-box ul {
     padding-left: 25px;
     line-height: 2;
-    color: #56675a;
+    color: #647268;
 }
 
 .back-btn {
-    margin-top: 25px;
-    background: #4c963b;
+    margin-top: 30px;
+    background: #17452e;
     color: white;
-    padding: 12px 25px;
+    padding: 13px 28px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
+    font-size: 15px;
+}
+
+.back-btn:hover {
+    background: #d3a72e;
+    color: #173b2c;
 }
 
 /* FOOTER */
 
 footer {
-    background: #173e24;
+    background: #103e2c;
     color: white;
     text-align: center;
-    padding: 25px;
+    padding: 30px 15px;
     line-height: 1.8;
+}
+
+footer h3 {
+    margin-bottom: 8px;
 }
 
 /* RESPONSIVE */
 
-@media(max-width: 900px) {
-    .activities-grid {
+@media(max-width: 950px) {
+    .weeks-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
     .hero-content h1 {
-        font-size: 43px;
+        font-size: 48px;
     }
 }
 
 @media(max-width: 600px) {
+
     .navbar {
-        padding: 20px 5%;
+        padding: 18px 4%;
     }
 
     .logo {
-        font-size: 18px;
+        font-size: 15px;
     }
 
     .nav-links {
-        gap: 15px;
+        gap: 5px;
     }
 
     .nav-links a {
-        font-size: 14px;
+        font-size: 12px;
+        padding: 8px 10px;
     }
 
     .hero-content h1 {
-        font-size: 35px;
+        font-size: 36px;
     }
 
     .hero-content p {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .highlights {
         grid-template-columns: 1fr;
     }
 
-    .activities-grid {
+    .page-section {
+        padding: 95px 4% 35px;
+    }
+
+    .page-banner {
+        padding: 22px 18px;
+    }
+
+    .page-banner h1 {
+        font-size: 29px;
+    }
+
+    .topic-row {
+        grid-template-columns: 75px 28px 1fr;
+        gap: 9px;
+        padding: 12px 3px;
+    }
+
+    .topic-row img {
+        width: 72px;
+        height: 65px;
+    }
+
+    .topic-number {
+        font-size: 16px;
+    }
+
+    .topic-info h2 {
+        font-size: 17px;
+    }
+
+    .topic-info p {
+        font-size: 10px;
+    }
+
+    .weeks-grid {
         grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .week-card img {
+        height: 190px;
     }
 
     .details-box {
-        padding: 25px;
+        padding: 20px;
+    }
+
+    .details-box h1 {
+        font-size: 30px;
+    }
+
+    .details-box img {
+        height: 220px;
     }
 }
+
 </style>
 </head>
 
@@ -363,12 +529,26 @@ footer {
 <!-- NAVIGATION -->
 
 <nav class="navbar">
+
     <div class="logo">🌿 HORTICULTURE</div>
 
     <div class="nav-links">
-        <a href="#home" onclick="showPage('home')">Home</a>
-        <a href="#activities" onclick="showPage('activities')">Activities</a>
+
+        <a href="#home"
+           id="homeNav"
+           class="active"
+           onclick="showPage('home')">
+           Home
+        </a>
+
+        <a href="#activities"
+           id="activitiesNav"
+           onclick="showPage('activities')">
+           Activities
+        </a>
+
     </div>
+
 </nav>
 
 <!-- WELCOME PAGE -->
@@ -377,9 +557,13 @@ footer {
 
     <div class="hero-content">
 
-        <div class="tagline">Welcome to Horticulture</div>
+        <div class="tagline">
+            Welcome to Horticulture
+        </div>
 
-        <h1>Growing a Greener Tomorrow!</h1>
+        <h1>
+            Growing a <span>Greener</span> Tomorrow!
+        </h1>
 
         <p>
             Discover the beauty of nature, explore the world
@@ -387,50 +571,95 @@ footer {
             and healthier environment.
         </p>
 
-        <a href="#activities"
-           class="explore-btn"
-           onclick="showPage('activities')">
-           Explore Activities →
+        <a href="#project"
+           class="main-btn"
+           onclick="showPage('project')">
+           Explore Project →
         </a>
 
     </div>
 
 </section>
 
-<!-- HIGHLIGHTS -->
+<!-- HOME HIGHLIGHTS -->
 
-<section class="highlights" id="highlights">
+<section class="highlights">
 
     <div class="highlight-card">
         <div class="emoji">🌱</div>
         <h3>Plant Growing</h3>
-        <p>Learn how to grow healthy plants and understand their development.</p>
+        <p>
+            Learn how to grow healthy plants and understand
+            their development.
+        </p>
     </div>
 
     <div class="highlight-card">
         <div class="emoji">🌻</div>
         <h3>Garden Care</h3>
-        <p>Discover gardening methods and techniques to maintain beautiful gardens.</p>
+        <p>
+            Discover gardening methods and techniques to
+            maintain beautiful gardens.
+        </p>
     </div>
 
     <div class="highlight-card">
         <div class="emoji">🌳</div>
         <h3>Green Environment</h3>
-        <p>Understand the importance of nature and contribute to a greener planet.</p>
+        <p>
+            Understand the importance of nature and contribute
+            to a greener planet.
+        </p>
     </div>
 
 </section>
 
-<!-- ACTIVITIES PAGE -->
+<!-- PROJECT PAGE -->
 
-<section class="activities-section" id="activities">
+<section class="page-section" id="project">
 
-    <div class="section-heading">
-        <h1>Our Horticulture Activities</h1>
-        <p>Explore your learning journey through 8 weeks of activities.</p>
+    <div class="page-banner">
+
+        <small>HORTICULTURE MAIN PROJECT</small>
+
+        <h1>
+            Discover the <span>World of Horticulture.</span>
+        </h1>
+
+        <p>
+            Explore nature, learn new skills, and discover
+            sustainable ways to grow a greener future.
+            Learn about soil, plants, water and the environment
+            through five important horticulture practices.
+        </p>
+
     </div>
 
-    <div class="activities-grid" id="activitiesGrid"></div>
+    <div id="topicList"></div>
+
+</section>
+
+<!-- ACTIVITIES PAGE - 8 WEEKS -->
+
+<section class="page-section" id="activities">
+
+    <div class="page-banner">
+
+        <small>PRACTICAL LEARNING PROGRAMME</small>
+
+        <h1>
+            Our <span>8 Weeks</span> Activities.
+        </h1>
+
+        <p>
+            Explore eight weeks of practical horticulture
+            learning. Each week introduces a new activity,
+            useful skills and hands-on experience.
+        </p>
+
+    </div>
+
+    <div class="weeks-grid" id="weeksGrid"></div>
 
 </section>
 
@@ -445,144 +674,329 @@ footer {
 <!-- FOOTER -->
 
 <footer>
+
     <h3>🌿 Horticulture Learning Hub</h3>
+
     <p>Learn Today, Grow Tomorrow!</p>
+
     <p>© 2026 Horticulture Website. All Rights Reserved.</p>
+
 </footer>
 
 <script>
 
-/* 8 WEEKS ACTIVITIES DATA */
+/* FIVE MAIN PROJECT TOPICS */
+
+const topics = [
+
+{
+    title: "Soil Management",
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
+    description: "Healthy soil supports stronger roots, better plant growth and improved crop production.",
+    objective: "Understand soil types, fertility and the importance of maintaining healthy soil.",
+    tasks: [
+        "Study different types of soil.",
+        "Learn soil preparation methods.",
+        "Understand organic manure and compost.",
+        "Study soil nutrients and fertility.",
+        "Learn methods to prevent soil erosion."
+    ],
+    outcome: "Students learn how to maintain fertile and healthy soil for sustainable horticulture."
+},
+
+{
+    title: "Natural Pest Control",
+    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b",
+    description: "Protect plants naturally using organic methods, beneficial insects and eco-friendly solutions.",
+    objective: "Understand natural ways to protect plants from harmful pests.",
+    tasks: [
+        "Identify common garden pests.",
+        "Observe insects affecting plants.",
+        "Learn neem-based pest control.",
+        "Study biological pest control methods.",
+        "Understand organic plant protection."
+    ],
+    outcome: "Students understand environmentally friendly pest management practices."
+},
+
+{
+    title: "Water Management",
+    image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735",
+    description: "Manage irrigation carefully and conserve water for healthy plant and crop development.",
+    objective: "Learn how to use water efficiently for plant growth.",
+    tasks: [
+        "Study different irrigation methods.",
+        "Understand drip irrigation.",
+        "Learn proper watering techniques.",
+        "Observe water requirements of plants.",
+        "Study rainwater harvesting."
+    ],
+    outcome: "Students learn how to conserve water and provide suitable irrigation."
+},
+
+{
+    title: "Crop Observation",
+    image: "https://images.unsplash.com/photo-1499529112087-3cb3b73cec95",
+    description: "Observe crop growth, leaf colour, plant health and changes during different growth stages.",
+    objective: "Develop observation skills and identify changes in plant development.",
+    tasks: [
+        "Observe plant height and growth.",
+        "Check leaf colour and condition.",
+        "Identify plant diseases.",
+        "Record crop development.",
+        "Compare healthy and unhealthy plants."
+    ],
+    outcome: "Students develop practical observation skills and understand crop growth."
+},
+
+{
+    title: "Community Learning",
+    image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18",
+    description: "Share gardening knowledge, participate in group activities and learn from local communities.",
+    objective: "Encourage teamwork and exchange of horticulture knowledge.",
+    tasks: [
+        "Participate in group discussions.",
+        "Learn from local gardeners and farmers.",
+        "Conduct gardening awareness activities.",
+        "Share horticulture knowledge.",
+        "Present group project results."
+    ],
+    outcome: "Students develop teamwork, communication and practical learning skills."
+}
+
+];
+
+
+/* EIGHT WEEKS DATA */
 
 const weeks = [
+
 {
     title: "Introduction to Horticulture",
     image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b",
-    description: "Learn the basics of horticulture and its importance.",
-    objective: "Understand horticulture and its different branches.",
-    tasks: ["Introduction to horticulture", "Importance of plants", "Study different horticulture branches"],
+    description: "Understand horticulture, its importance and different branches.",
+    objective: "Learn the basic concepts and importance of horticulture.",
+    tasks: [
+        "Introduction to horticulture.",
+        "Study the importance of plants.",
+        "Identify different horticulture branches.",
+        "Observe different garden plants."
+    ],
     outcome: "Students understand the basic concepts of horticulture."
 },
+
 {
     title: "Soil Preparation",
     image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
-    description: "Understand soil types and methods of soil preparation.",
-    objective: "Learn how soil supports plant growth.",
-    tasks: ["Identify different soil types", "Study soil nutrients", "Prepare soil for planting"],
+    description: "Learn soil types, preparation techniques and organic manure.",
+    objective: "Understand how soil supports healthy plant growth.",
+    tasks: [
+        "Identify different soil types.",
+        "Study soil nutrients.",
+        "Learn soil preparation.",
+        "Prepare soil for planting."
+    ],
     outcome: "Students learn proper soil preparation techniques."
 },
+
 {
     title: "Seed Germination",
     image: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e",
-    description: "Learn how seeds germinate and develop into plants.",
-    objective: "Understand the process of seed germination.",
-    tasks: ["Collect seeds", "Plant seeds in containers", "Observe germination"],
+    description: "Observe seeds developing into small plants through germination.",
+    objective: "Understand the process and conditions required for seed germination.",
+    tasks: [
+        "Collect healthy seeds.",
+        "Prepare seed containers.",
+        "Plant seeds in soil.",
+        "Observe seed germination."
+    ],
     outcome: "Students understand the stages of seed germination."
 },
+
 {
     title: "Plant Propagation",
     image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735",
-    description: "Explore different methods of plant propagation.",
-    objective: "Learn methods of producing new plants.",
-    tasks: ["Study cutting method", "Learn layering", "Observe propagation methods"],
+    description: "Explore different methods of producing new plants.",
+    objective: "Learn practical plant propagation techniques.",
+    tasks: [
+        "Study cutting methods.",
+        "Learn layering techniques.",
+        "Observe plant propagation.",
+        "Prepare new plants."
+    ],
     outcome: "Students gain knowledge about plant propagation."
 },
+
 {
     title: "Garden Maintenance",
     image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae",
-    description: "Learn watering, pruning and maintaining gardens.",
-    objective: "Understand regular garden maintenance.",
-    tasks: ["Watering plants", "Remove unwanted weeds", "Learn pruning techniques"],
+    description: "Learn watering, pruning, cleaning and maintaining gardens.",
+    objective: "Understand the regular care required for healthy gardens.",
+    tasks: [
+        "Watering plants regularly.",
+        "Remove unwanted weeds.",
+        "Learn pruning techniques.",
+        "Clean and maintain garden areas."
+    ],
     outcome: "Students learn how to maintain a healthy garden."
 },
+
 {
     title: "Organic Gardening",
     image: "https://images.unsplash.com/photo-1540420773420-3366772f4999",
-    description: "Discover natural and organic gardening practices.",
+    description: "Discover natural gardening practices and organic fertilizers.",
     objective: "Understand eco-friendly gardening methods.",
-    tasks: ["Prepare compost", "Learn organic manure usage", "Study natural pest control"],
+    tasks: [
+        "Prepare organic compost.",
+        "Learn organic manure usage.",
+        "Study natural fertilizers.",
+        "Understand eco-friendly gardening."
+    ],
     outcome: "Students understand organic gardening practices."
 },
+
 {
     title: "Plant Diseases and Protection",
     image: "https://images.unsplash.com/photo-1492496913980-501348b61469",
-    description: "Identify common plant diseases and their prevention.",
-    objective: "Learn to protect plants from pests and diseases.",
-    tasks: ["Identify plant diseases", "Observe affected leaves", "Study prevention methods"],
+    description: "Identify common plant diseases and learn how to protect crops.",
+    objective: "Understand plant health and basic disease prevention.",
+    tasks: [
+        "Identify common plant diseases.",
+        "Observe affected leaves.",
+        "Study pest prevention.",
+        "Learn plant protection methods."
+    ],
     outcome: "Students learn basic plant protection techniques."
 },
+
 {
-    title: "Project and Final Review",
+    title: "Final Project and Review",
     image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
-    description: "Complete a small horticulture project and review learning.",
+    description: "Complete a small horticulture project and review all learning activities.",
     objective: "Apply the knowledge gained during eight weeks.",
-    tasks: ["Prepare a small garden project", "Present project results", "Review all activities"],
-    outcome: "Students demonstrate their horticulture knowledge."
+    tasks: [
+        "Prepare a small garden project.",
+        "Record plant growth.",
+        "Present project results.",
+        "Review all eight weeks of activities."
+    ],
+    outcome: "Students demonstrate their practical horticulture knowledge."
 }
+
 ];
 
-/* DISPLAY ACTIVITY CARDS */
 
-const grid = document.getElementById("activitiesGrid");
+/* DISPLAY FIVE MAIN TOPICS */
+
+const topicList = document.getElementById("topicList");
+
+topics.forEach((topic, index) => {
+
+    const row = document.createElement("div");
+
+    row.className = "topic-row";
+
+    row.innerHTML = `
+
+        <img src="${topic.image}" alt="${topic.title}">
+
+        <div class="topic-number">
+            0${index + 1}
+        </div>
+
+        <div class="topic-info">
+
+            <h2>${topic.title}</h2>
+
+            <p>${topic.description}</p>
+
+        </div>
+
+    `;
+
+    topicList.appendChild(row);
+
+});
+
+
+/* DISPLAY EIGHT WEEKS */
+
+const weeksGrid = document.getElementById("weeksGrid");
 
 weeks.forEach((week, index) => {
 
     const card = document.createElement("div");
+
     card.className = "week-card";
 
     card.innerHTML = `
+
         <img src="${week.image}" alt="${week.title}">
 
         <div class="week-content">
-            <span>Week ${index + 1}</span>
+
+            <span>WEEK ${index + 1}</span>
 
             <h3>${week.title}</h3>
 
             <p>${week.description}</p>
 
-            <button onclick="openDetails(${index})">
-                View Details →
+            <button onclick="openWeek(${index})">
+                Explore →
             </button>
+
         </div>
+
     `;
 
-    grid.appendChild(card);
+    weeksGrid.appendChild(card);
 
 });
 
-/* OPEN DETAILS */
 
-function openDetails(index) {
+/* OPEN WEEK DETAILS */
+
+function openWeek(index) {
 
     const week = weeks[index];
 
     document.getElementById("detailsContent").innerHTML = `
 
-        <h1>Week ${index + 1}: ${week.title}</h1>
+        <img src="${week.image}" alt="${week.title}">
+
+        <span class="label">
+            HORTICULTURE PRACTICAL ACTIVITY - WEEK ${index + 1}
+        </span>
+
+        <h1>${week.title}</h1>
 
         <p>${week.description}</p>
 
         <h3>Learning Objective</h3>
+
         <p>${week.objective}</p>
 
-        <h3>Activities</h3>
+        <h3>Activities to Perform</h3>
 
         <ul>
             ${week.tasks.map(task => `<li>${task}</li>`).join("")}
         </ul>
 
         <h3>Expected Outcome</h3>
+
         <p>${week.outcome}</p>
 
         <button class="back-btn"
-        onclick="showPage('activities')">
-        ← Back to Activities
+            onclick="showPage('activities')">
+            ← Back to 8 Weeks
         </button>
 
     `;
 
     showPage("details");
+
 }
+
 
 /* PAGE NAVIGATION */
 
@@ -590,39 +1004,54 @@ function showPage(page) {
 
     const hero = document.querySelector(".hero");
     const highlights = document.querySelector(".highlights");
-    const activities = document.querySelector(".activities-section");
-    const details = document.querySelector(".details-section");
+    const project = document.getElementById("project");
+    const activities = document.getElementById("activities");
+    const details = document.getElementById("details");
     const footer = document.querySelector("footer");
 
     hero.style.display = "none";
     highlights.style.display = "none";
+    project.style.display = "none";
     activities.style.display = "none";
     details.style.display = "none";
+    footer.style.display = "block";
+
+    document.getElementById("homeNav").classList.remove("active");
+    document.getElementById("activitiesNav").classList.remove("active");
 
     if (page === "home") {
 
         hero.style.display = "flex";
         highlights.style.display = "grid";
-        footer.style.display = "block";
+
+        document.getElementById("homeNav").classList.add("active");
+
+    }
+
+    else if (page === "project") {
+
+        project.style.display = "block";
 
     }
 
     else if (page === "activities") {
 
         activities.style.display = "block";
-        footer.style.display = "block";
+
+        document.getElementById("activitiesNav").classList.add("active");
 
     }
 
     else if (page === "details") {
 
         details.style.display = "block";
-        footer.style.display = "block";
 
     }
 
     window.scrollTo(0, 0);
+
 }
+
 
 /* INITIAL PAGE */
 
