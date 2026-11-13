@@ -891,6 +891,25 @@ const weeks = [
 
 ];
 
+/* ADD PHOTO GALLERIES TO ALL 8 WEEKS */
+
+weeks.forEach((week, index) => {
+
+    const weekNumber = index + 1;
+
+    week.gallery = Array.from({ length: 4 }, (_, photoIndex) => {
+
+        const photoNumber = photoIndex + 1;
+
+        return {
+            src: `images/week${weekNumber}/photo${photoNumber}.jpg`,
+            caption: `${week.title} - Photo ${photoNumber}`
+        };
+
+    });
+
+});
+
 /* CREATE WEEK CARDS */
 
 const weekGrid = document.getElementById("weekGrid");
