@@ -864,19 +864,18 @@ const weeks = [
 }
 
 ];
-
 /* ADD PHOTO GALLERIES TO ALL 8 WEEKS */
 
 weeks.forEach((week, index) => {
 
     const weekNumber = index + 1;
 
-    week.gallery = Array.from({ length: 4 }, (_, photoIndex) => {
+    week.gallery = Array.from({ length: 6 }, (_, photoIndex) => {
 
         const photoNumber = photoIndex + 1;
 
         return {
-            src: `images/week${weekNumber}/photo${photoNumber}.jpg`,
+            src: `images/week${weekNumber}/image${photoNumber}.jpg.jpeg`,
             caption: `${week.title} - Photo ${photoNumber}`
         };
 
