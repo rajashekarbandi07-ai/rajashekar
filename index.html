@@ -829,9 +829,74 @@ const weeks = [
         "Weed management",
         "Organic plant protection"
     ],
+   
     activities: [
-        
-/* AUTOMATIC PHOTO GALLERY FOR ALL 8 WEEKS */
+        "Observe common plant pests and identify their symptoms.",
+        "Learn about common plant diseases.",
+        "Study different methods of weed management.",
+        "Understand organic plant protection methods."
+    ],
+
+    outcome: "Understand plant health, pest management and crop protection."
+},
+
+{
+    title: "Week 7 - Modern Cultivation and Plant Management",
+    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=700",
+    description: "Understand modern methods of plant cultivation and management.",
+    objective: "To learn modern cultivation practices.",
+    topics: [
+        "Modern cultivation methods",
+        "Plant growth management",
+        "Sustainable horticulture"
+    ],
+    activities: [
+        "Observe modern cultivation practices.",
+        "Study plant growth and management.",
+        "Learn sustainable horticultural methods."
+    ],
+    outcome: "Understand modern cultivation and plant management techniques."
+},
+
+},
+
+{
+    title: "Week 8 - Harvesting and Post-Harvest Management",
+    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=700",
+    description: "Learn how horticultural products are harvested and stored.",
+    objective: "To understand harvesting, storage and marketing.",
+    topics: [
+        "Harvesting methods",
+        "Maturity indices",
+        "Post-harvest handling",
+        "Storage and marketing"
+    ],
+    activities: [
+        "Observe maturity stages of fruits.",
+        "Study proper harvesting methods.",
+        "Prepare a post-harvest management chart."
+    ],
+    outcome: "Understand how to maintain the quality of horticultural products."
+}
+
+];
+/* ADD PHOTO GALLERIES TO ALL 8 WEEKS */
+
+
+weeks.forEach((week, index) => {
+
+    const weekNumber = index + 1;
+
+    week.gallery = Array.from({ length: 6 }, (_, photoIndex) => {
+
+        const photoNumber = photoIndex + 1;
+
+        return {
+            src: `images/week${weekNumber}/image${photoNumber}.jpg.jpeg`,
+            caption: `${week.title} - Photo ${photoNumber}`
+        };
+
+/* AUTOMATIC PHOTO LOADING FROM GITHUB */
 
 async function getWeekPhotos(weekNumber) {
 
@@ -871,67 +936,6 @@ async function getWeekPhotos(weekNumber) {
 
     }
 }
-
-    outcome: "Understand modern cultivation and plant management techniques."
-},
-
-{
-    title: "Week 8 - Harvesting and Post-Harvest Management",
-    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=700",
-    description: "Learn how horticultural products are harvested and stored.",
-    objective: "To understand harvesting, storage and marketing.",
-    topics: [
-        "Harvesting methods",
-        "Maturity indices",
-        "Post-harvest handling",
-        "Storage and marketing"
-    ],
-    activities: [
-        "Observe maturity stages of fruits.",
-        "Study proper harvesting methods.",
-        "Prepare a post-harvest management chart."
-    ],
-    outcome: "Understand how to maintain the quality of horticultural products."
-}
-
-];
-/* ADD PHOTO GALLERIES TO ALL 8 WEEKS */
-
-
-weeks.forEach((week, index) => {
-
-    const weekNumber = index + 1;
-
-    week.gallery = Array.from({ length: 6 }, (_, photoIndex) => {
-
-        const photoNumber = photoIndex + 1;
-
-        return {
-            src: `images/week${weekNumber}/image${photoNumber}.jpg.jpeg`,
-            caption: `${week.title} - Photo ${photoNumber}`
-        };
-
-    });
-
-    // Show only photos that actually exist
-    week.gallery = week.gallery.filter(photo => {
-        return false;
-    });
-
-});
-
-/* CREATE WEEK CARDS */
-
-const weekGrid = document.getElementById("weekGrid");
-
-weeks.forEach((week, index) => {
-
-    const card = document.createElement("div");
-
-    card.className = "week-card";
-
-    card.innerHTML = `
-        <img src="${week.image}" alt="${week.title}">
 
         <div class="week-info">
 
@@ -1049,8 +1053,6 @@ async function openWeek(index) {
         </div>
 
     `;
-
-}
 
 }
 
