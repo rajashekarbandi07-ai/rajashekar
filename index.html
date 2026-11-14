@@ -878,6 +878,7 @@ const weeks = [
 ];
 /* ADD PHOTO GALLERIES TO ALL 8 WEEKS */
 
+
 weeks.forEach((week, index) => {
 
     const weekNumber = index + 1;
@@ -891,6 +892,11 @@ weeks.forEach((week, index) => {
             caption: `${week.title} - Photo ${photoNumber}`
         };
 
+    });
+
+    // Show only photos that actually exist
+    week.gallery = week.gallery.filter(photo => {
+        return false;
     });
 
 });
