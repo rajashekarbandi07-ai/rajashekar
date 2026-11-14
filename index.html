@@ -830,29 +830,48 @@ const weeks = [
         "Organic plant protection"
     ],
     activities: [
-        "Observe plant symptoms.",
-        "Identify common garden pests.",
-        "Study safe and sustainable pest management."
-    ],
-    outcome: "Learn basic plant protection and management practices."
-},
+        
+/* AUTOMATIC PHOTO GALLERY FOR ALL 8 WEEKS */
 
-{
-    title: "Week 7 - Training, Pruning and Greenhouse",
-    image: "https://images.unsplash.com/photo-1483794344563-d27a8d18014e?w=700",
-    description: "Explore plant shaping and protected cultivation.",
-    objective: "To learn training, pruning and greenhouse techniques.",
-    topics: [
-        "Training methods",
-        "Pruning techniques",
-        "Greenhouse cultivation",
-        "Hydroponics"
-    ],
-    activities: [
-        "Observe trained plants.",
-        "Study greenhouse structures.",
-        "Learn about hydroponic cultivation."
-    ],
+async function getWeekPhotos(weekNumber) {
+
+    const apiUrl =
+        `https://api.github.com/repos/rajashekarbandi07-ai/rajashekar/contents/images/week${weekNumber}`;
+
+    try {
+
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+            throw new Error("Unable to load photos");
+        }
+
+        const files = await response.json();
+
+        return files
+            .filter(file =>
+                file.type === "file" &&
+                /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name) &&
+                file.download_url
+            )
+            .sort((a, b) =>
+                a.name.localeCompare(b.name, undefined, {
+                    numeric: true
+                })
+            )
+            .map(file => ({
+                src: file.download_url,
+                name: file.name
+            }));
+
+    } catch (error) {
+
+        console.error("Photo loading error:", error);
+        return null;
+
+    }
+}
+
     outcome: "Understand modern cultivation and plant management techniques."
 },
 
@@ -931,53 +950,12 @@ weeks.forEach((week, index) => {
 
 });
 
-/* OPEN WEEK DETAILS */
 
-function openWeek(index) {
+/* OPEN WEEK DETAILS WITH AUTOMATIC PHOTO GALLERY */
+
+async function openWeek(index) {
 
     const week = weeks[index];
-
-    let galleryHTML = "";
-
-    /* DISPLAY GALLERY ONLY FOR WEEK 1 */
-
-    if (week.gallery && week.gallery.length > 0) {
-
-        galleryHTML = `
-
-            <h2 class="gallery-heading">
-                📸 Image Gallery
-            </h2>
-
-            <p class="gallery-intro">
-                Real photographs from our horticulture field visit
-                at Pathalapalle, Andhra Pradesh.
-            </p>
-
-            <div class="image-gallery">
-
-                ${week.gallery.map(photo => `
-
-                    <div class="gallery-item">
-
-                        <img
-                            src="${photo.src}"
-                            alt="${photo.caption}"
-                            onclick="openLightbox('${photo.src}')"
-                        >
-
-                        <div class="gallery-caption">
-                            ${photo.caption}
-                        </div>
-
-                    </div>
-
-                `).join("")}
-
-            </div>
-
-        `;
-    }
 
     document.getElementById("weekContent").innerHTML = `
 
@@ -986,39 +964,94 @@ function openWeek(index) {
         <p>${week.description}</p>
 
         <h2>🎯 Learning Objective</h2>
-
         <p>${week.objective}</p>
 
         <h2>📚 Topics Covered</h2>
-
         <ul>
             ${week.topics.map(topic => `<li>${topic}</li>`).join("")}
         </ul>
 
         <h2>🧪 Practical Activities</h2>
-
         <ul>
             ${week.activities.map(activity => `<li>${activity}</li>`).join("")}
         </ul>
 
         <h2>🌱 Learning Outcome</h2>
-
         <p>${week.outcome}</p>
 
-        ${galleryHTML}
+        <div id="weekGalleryContainer">
+            <h2 class="gallery-heading">📸 Image Gallery</h2>
+            <p class="gallery-intro">Loading photos...</p>
+        </div>
 
         <br><br>
 
         <button class="primary-btn"
             onclick="showPage('activities')">
-
             ← Back to All Weeks
-
         </button>
 
     `;
 
     showPage("weekDetails");
+
+    const galleryContainer =
+        document.getElementById("weekGalleryContainer");
+
+    const photos = await getWeekPhotos(index + 1);
+
+    if (photos === null) {
+
+        galleryContainer.innerHTML =
+            "<p>Unable to load photos. Please refresh and try again.</p>";
+
+        return;
+    }
+
+    if (photos.length === 0) {
+
+        galleryContainer.innerHTML =
+            "<p class='gallery-intro'>No photos uploaded for this week yet.</p>";
+
+        return;
+    }
+
+    galleryContainer.innerHTML = `
+
+        <h2 class="gallery-heading">📸 Image Gallery</h2>
+
+        <p class="gallery-intro">
+            Real photographs from our horticulture activities.
+            Total Photos: ${photos.length}
+        </p>
+
+        <div class="image-gallery">
+
+            ${photos.map((photo, photoIndex) => `
+
+                <div class="gallery-item">
+
+                    <img
+                        src="${photo.src}"
+                        alt="Week ${index + 1} Photo ${photoIndex + 1}"
+                        onclick="openLightbox('${photo.src}')"
+                        loading="lazy"
+                    >
+
+                    <div class="gallery-caption">
+                        Week ${index + 1} - Photo ${photoIndex + 1}
+                    </div>
+
+                </div>
+
+            `).join("")}
+
+        </div>
+
+    `;
+
+}
+
 }
 
 /* IMAGE ZOOM */
