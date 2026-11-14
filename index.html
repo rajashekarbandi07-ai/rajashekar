@@ -858,8 +858,6 @@ const weeks = [
     outcome: "Understand modern cultivation and plant management techniques."
 },
 
-},
-
 {
     title: "Week 8 - Harvesting and Post-Harvest Management",
     image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=700",
@@ -876,25 +874,8 @@ const weeks = [
         "Study proper harvesting methods.",
         "Prepare a post-harvest management chart."
     ],
-    outcome: "Understand how to maintain the quality of horticultural products."
-}
-
-];
-/* ADD PHOTO GALLERIES TO ALL 8 WEEKS */
-
-
-weeks.forEach((week, index) => {
-
-    const weekNumber = index + 1;
-
-    week.gallery = Array.from({ length: 6 }, (_, photoIndex) => {
-
-        const photoNumber = photoIndex + 1;
-
-        return {
-            src: `images/week${weekNumber}/image${photoNumber}.jpg.jpeg`,
-            caption: `${week.title} - Photo ${photoNumber}`
-        };
+     outcome: "Understand modern cultivation and plant management techniques."
+},
 
 /* AUTOMATIC PHOTO LOADING FROM GITHUB */
 
@@ -936,6 +917,20 @@ async function getWeekPhotos(weekNumber) {
 
     }
 }
+
+
+/* CREATE WEEK CARDS */
+
+const weekGrid = document.getElementById("weekGrid");
+
+weeks.forEach((week, index) => {
+
+    const card = document.createElement("div");
+
+    card.className = "week-card";
+
+    card.innerHTML = `
+        <img src="${week.image}" alt="${week.title}">
 
         <div class="week-info">
 
