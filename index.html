@@ -302,7 +302,7 @@ nav {
     cursor: pointer;
 }
 
-/* WEEK 1 IMAGE GALLERY */
+/* IMAGE GALLERY */
 .gallery-heading {
     text-align: center;
     margin: 45px 0 10px;
@@ -705,16 +705,11 @@ function showPage(pageId) {
 
 const weeks = [
 
-
 {
     title: "Week 1 - Awareness on Horticulture",
-
     image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900",
-
     description: "Conducted a community survey to create awareness about horticulture, nursery management, natural fertilizers and environmental protection.",
-
     objective: "To create awareness among villagers about the importance of horticulture, different soil types, natural fertilizers, rainwater harvesting and growing more trees for a better future.",
-
     topics: [
         "Introduction and awareness on horticulture",
         "Visit to local nurseries",
@@ -724,21 +719,14 @@ const weeks = [
         "Importance of tree plantation and pollution control",
         "Rainwater harvesting and high-yielding varieties"
     ],
-
     activities: [
         "DAY-1: Started the Community Service Project on Horticulture and visited nurseries located in our area.",
-
         "DAY-2: Visited a nursery, explained our community service project and requested the nursery workers to share their knowledge about horticulture and its uses.",
-
         "DAY-3: Conducted a survey and learned about different types of soils, such as black soil and red soil. Nursery workers explained that they mostly use red soil for growing plants.",
-
         "DAY-4: Learned that weeds are removed from plants once a week to support healthy plant growth. Also, learned about using natural fertilizers such as cow dung and plant waste instead of chemical fertilizers.",
-
         "DAY-5: Visited the nursery again and created awareness about growing more trees to reduce pollution and protect the environment for a better future.",
-
         "DAY-6: Shared awareness among villagers about horticulture, the use of natural fertilizers, rainwater harvesting and high-yielding varieties."
     ],
-
     outcome: "Successfully conducted a six-day awareness survey on horticulture. Gained practical knowledge about nursery management, different soil types, weed removal and natural fertilizers. Created awareness among villagers about tree plantation, rainwater harvesting and sustainable horticultural practices."
 },
 
@@ -829,14 +817,12 @@ const weeks = [
         "Weed management",
         "Organic plant protection"
     ],
-   
     activities: [
         "Observe common plant pests and identify their symptoms.",
         "Learn about common plant diseases.",
         "Study different methods of weed management.",
         "Understand organic plant protection methods."
     ],
-
     outcome: "Understand plant health, pest management and crop protection."
 },
 
@@ -874,8 +860,11 @@ const weeks = [
         "Study proper harvesting methods.",
         "Prepare a post-harvest management chart."
     ],
-     outcome: "Understand modern cultivation and plant management techniques."
-},
+    outcome: "Understand modern cultivation and plant management techniques."
+}
+
+];
+
 
 /* AUTOMATIC PHOTO LOADING FROM GITHUB */
 
@@ -1033,7 +1022,7 @@ async function openWeek(index) {
                     <img
                         src="${photo.src}"
                         alt="Week ${index + 1} Photo ${photoIndex + 1}"
-                        onclick="openLightbox('${photo.src}')"
+                        onclick="openLightbox(this.src)"
                         loading="lazy"
                     >
 
@@ -1051,6 +1040,7 @@ async function openWeek(index) {
 
 }
 
+
 /* IMAGE ZOOM */
 
 function openLightbox(src) {
@@ -1063,7 +1053,9 @@ function openLightbox(src) {
 function closeLightbox() {
 
     document.getElementById("lightbox").classList.remove("open");
+    document.getElementById("lightboxImage").src = "";
 }
+
 
 /* ESC KEY TO CLOSE IMAGE */
 
